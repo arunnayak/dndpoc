@@ -1,0 +1,88 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*these styles needs to be added into the compnents in scss when it's created*/
+body{
+    background: #ccc;
+}
+.apps{
+    background: #fff;
+    padding: 10px;
+}
+.apps__list{
+    padding: 20px 0 0;
+}
+.apps__list-item{
+    border-top: solid 1px #ccc;
+    padding: 10px 0;
+}
+.apps__list::after{
+    clear: both;
+}
+
+.leftpane, .area{
+    height: 100vh;
+}
+.leftpane{
+    padding-top: 20px;
+}
+.leftpane__items{
+    margin: 0;
+    padding: 0;
+}
+.leftpane__item{
+    list-style: none;
+    border-bottom: solid 1px #ccc;
+}
+.leftpane__item-link{
+    font-size: 13px;
+    color: #999;display: block;
+    padding: 5px;
+    
+}
+.leftpane__item-link:hover{
+    text-decoration: none;
+    color: #000;
+    background: #f5f5f5;
+
+}
+.device__list{
+    text-align: left;
+    padding: 15px 0;
+    margin: 0;
+}
+.device__list-item{
+    list-style: none;
+    display: inline-block;
+    color: #000;
+    background: #fff;
+    padding: 2px 10px;
+    cursor: pointer;
+}
+.device__list-item:hover{
+    background: #ccc;
+}
+
+.area{
+    background: #ddd;
+    padding-top: 50px;
+}
+.navbar{
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+}
+
+.iphone-5, .iphone-6, .iphone-7{
+    margin: 0 auto;
+    overflow: auto;
+    background: #fff;
+    border-radius: 10px;
+}
+.iphone-5{
+    width: 320px;
+    height: 460px;
+}
+.iphone-6, .iphone-7{
+    width: 414px;
+    height: 628px;
+}
