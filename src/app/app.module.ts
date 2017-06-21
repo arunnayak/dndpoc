@@ -7,9 +7,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 //import { AlertModule } from 'ngx-bootstrap'; //uncomment this line when we need an alert module
-import { DragulaModule } from 'ng2-dragula'; //============ third party module ==============//
+//import { DragulaModule } from 'ng2-dragula'; //============ third party module ==============//
 import { DndModule } from 'ng2-dnd';
-
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -47,7 +46,6 @@ const appRoutes: Routes  = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    DragulaModule,
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     DndModule.forRoot(),

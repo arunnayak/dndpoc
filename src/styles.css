@@ -2,7 +2,7 @@
 
 /*these styles needs to be added into the compnents in scss when it's created*/
 body{
-    background: #ccc;
+    background: #fff;
 }
 .apps{
     background: #fff;
@@ -19,11 +19,12 @@ body{
     clear: both;
 }
 
-.leftpane, .area{
-    height: 100vh;
+.leftpane{
+    height: 70vw;
 }
 .leftpane{
     padding-top: 20px;
+    background: #ddd;
 }
 .leftpane__items{
     margin: 0;
@@ -63,26 +64,10 @@ body{
 }
 
 .area{
-    background: #ddd;
     padding-top: 50px;
 }
 .navbar{
     margin: 0;
     border: 0;
     border-radius: 0;
-}
-
-.iphone-5, .iphone-6, .iphone-7{
-    margin: 0 auto;
-    overflow: auto;
-    background: #fff;
-    border-radius: 10px;
-}
-.iphone-5{
-    width: 320px;
-    height: 460px;
-}
-.iphone-6, .iphone-7{
-    width: 414px;
-    height: 628px;
 }
