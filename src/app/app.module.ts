@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
@@ -18,9 +18,8 @@ import { DevicepageComponent } from './devicepage/devicepage.component';
 import { firebaseConfig } from './firebaseConfig'
 
 const appRoutes: Routes  = [
-    { path: '', component: AppsComponent },
-    { path: 'apps', component: AppsComponent },
-    { path: 'app/:id', component: DevicepageComponent },
+    { path: '', component: AppsComponent, data:{ name: 'Home'}},
+    { path: 'app/:id', component: DevicepageComponent, data:{ name: 'Apps component'}},
     
 ]
 
@@ -48,5 +47,5 @@ const appRoutes: Routes  = [
 })
 
 export class AppModule {
-  
+
 }

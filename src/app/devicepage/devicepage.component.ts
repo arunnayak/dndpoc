@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { saveAs } from 'file-saver';
+import { RouterModule, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-devicepage',
@@ -9,9 +10,15 @@ import { saveAs } from 'file-saver';
 })
 
 export class DevicepageComponent {
+    public showNav : boolean = false;
+
+    constructor() {
+      this.showNav = false;
+
+      console.log(this.showNav);
+    }
 
     receivedData: Array<any> = [];
-    private formatToJson: Array<number> = [];
 
     items = [
       {name: 'name1', id: 1, description: 'description1'},
@@ -22,7 +29,12 @@ export class DevicepageComponent {
     transferDataSuccess($event: any) {
         this.receivedData.push($event);
         console.log(this.receivedData);
-        let formatToJson = JSON.stringify(this.receivedData);
-        saveAs(new Blob([formatToJson], { type: "application/json" }), 'data.json');
     }
+
+    downloadJSON (){
+      console.log('Downloading...');
+      let formatToJson = JSON.stringify(this.receivedData);
+      saveAs(new Blob([formatToJson], { type: "application/json" }), 'data.json');
+    }
+    
 }
