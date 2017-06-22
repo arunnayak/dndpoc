@@ -1,23 +1,10 @@
-<div class="container-fluid">
+<div class="container-fluid" style="background: #fff;">
   <div class="row">
     <div class="col-md-12">
       <div class="row">
         <div class="col-md-2 leftpane">
-          <!--<div class="panel panel-default" dnd-draggable [dragEnabled]="true" [dragData]="transferData">-->
-            <!--<div class="panel panel-default" dnd-draggable [dragEnabled]="true" [dragData]="transferData">
-            <div class="panel-body">
-              <div>Drag Me</div>
-              <div>{{transferData | json}}</div>
-            </div>
-          </div>
-          <div class="panel panel-default" dnd-draggable [dragEnabled]="true" [dragData]="transferData2">
-            <div class="panel-body">
-              <div>Drag Me</div>
-              <div>{{transferData | json}}</div>
-            </div>
-          </div>-->
 
-          <div class="panel panel-default" dnd-draggable [dragEnabled]="true" *ngFor="let item of items" >
+          <div class="panel panel-default" dnd-draggable [dragEnabled]="true" *ngFor="let item of items"  [dragData]="item" >
             <div class="panel-body">
               <div>Drag Me</div>
               <div>{{item | json}}</div>
@@ -27,13 +14,12 @@
         </div>
         <div class="col-md-10 area">
           <div dnd-droppable class="phone-area iphone-5" (onDropSuccess)="transferDataSuccess($event)">
-            
-            <div class="panel-body">
-              <div *ngFor="let data of receivedData">{{data | json}}</div>
+            <div class="elements">
+              <div [hidden]="!receivedData.length > 0" *ngFor="let data of receivedData">{{data | json}}</div>
             </div>
             
           </div>
-          <div class="panel-heading">Place to drop (Items:{{receivedData.length}})</div>
+          <!--<div class="panel-heading">Place to drop (Items:{{receivedData.length}})</div>-->
         </div>
       </div>
     </div>

@@ -15,16 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { AppsComponent } from './apps/apps.component';
 import { DevicepageComponent } from './devicepage/devicepage.component';
-
-
-// Must export the config
-export const firebaseConfig = {
-  apiKey: 'AIzaSyAkvSXEKIo9kOT2NldjljPj8kEtJoSL5Xg',
-  authDomain: 'mytestapp-d87cd.firebaseio.com',
-  databaseURL: 'https://mytestapp-d87cd.firebaseio.com',
-  storageBucket: 'mytestapp-d87cd.appspot.com'
-  //messagingSenderId: '<your-messaging-sender-id>'
-};
+import { firebaseConfig } from './firebaseConfig'
 
 const appRoutes: Routes  = [
     { path: '', component: AppsComponent },

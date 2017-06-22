@@ -5,14 +5,23 @@
       <div class="navbar-header col-md-2">
         <a class="navbar-brand" href="#">App Demo</a>
       </div>
-      <div class="devices col-md-10">
-        <!--<ul class="device__list">
+      <div class="devices col-md-10" [routerLink]="['']">
+        <ul class="device__list">
           <li class="device__list-item">Iphone 5</li>
           <li class="device__list-item">Iphone 6</li>
           <li class="device__list-item">Iphone 7</li>
-        </ul>-->
+        </ul>
+        <a href="#" (click)="download()" class="btn btn-primary pull-right" style="margin-top: 8px;" >Export Json</a>
       </div>
     </div>
   </nav>
+
+  <div class="modal fade" tabindex="-1" role="dialog" id="viewJsonData">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      Json data
+    </div>
+  </div>
+</div>
 </header>
 <!--header component-->

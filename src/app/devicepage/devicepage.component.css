@@ -1,3 +1,7 @@
+body{
+    background: #fff;
+}
+
 img{width: 100%;}
 
 .iphone-5, .iphone-6, .iphone-7{
@@ -20,7 +24,7 @@ img{width: 100%;}
     padding: 124px 22px 50px 23px;
     
 }
-.phone-area .panel-body{
+.phone-area .elements{
     height: 504px;
     overflow-x: auto;
 }
