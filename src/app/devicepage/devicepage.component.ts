@@ -20,11 +20,55 @@ export class DevicepageComponent {
 
     receivedData: Array<any> = [];
 
-    items = [
-      {name: 'name1', id: 1, description: 'description1'},
-      {name: 'name2', id: 2, description: 'description2'},
-      {name: 'name3', id: 3, description: 'description3'}
-    ];
+   "items" = [
+    { 
+      "name": "name1", 
+      "id": 1, 
+      "description": "description1", 
+      "imgUrl": "../../assets/img/flash.jpg",
+       "form": [
+          {
+            "data": false
+          }
+    ]},
+    { 
+      "name": "name2", 
+      "id": 2, 
+      "description": "description2", 
+      "imgUrl": "../../assets/img/arrow.jpg",
+       "form": [
+          {
+            "data": false
+          }
+      
+    ]},{ 
+      "name": "name3", 
+      "id": 3, 
+      "description": "description3", 
+      "imgUrl": "",
+       "form": [
+         {
+           "data": true,
+           "type": "button",
+           "name": "buttonName",
+           "id": "buttonId"
+         }
+      
+    ]},{ 
+      "name": "name4", 
+      "id": 4, 
+      "description": "description4", 
+      "imgUrl": "",
+       "form": [
+         {
+           "data": true,
+           "type": "text",
+           "name": "buttonName",
+           "id": "buttonId"
+         }
+      
+    ]}
+]
 
     transferDataSuccess($event: any) {
         this.receivedData.push($event);

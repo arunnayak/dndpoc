@@ -20,11 +20,21 @@ img{width: 100%;}
     width: 367px;
     height: 850px;
 }
+.iphone-6{
+    background: url("../../assets/img/iphone-6-portrait.png") no-repeat;
+    width: 423px;
+    height: 1000px;
+}
+.iphone-7{
+    background: url("../../assets/img/iphone-6-plus-portrait.png") no-repeat;
+    width: 462px;
+    height: 1000px;
+}
 .phone-area{
     padding: 124px 22px 50px 23px;
     
 }
-.phone-area .elements{
+.iphone-5 .elements{
     height: 504px;
     overflow-x: auto;
 }

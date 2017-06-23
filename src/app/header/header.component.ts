@@ -13,5 +13,20 @@ declare var jQuery: any;
 
 export class HeaderComponent {
   //jsonData = DevicepageComponent
-  
+
+  changeDevice(id){
+    console.log(id);
+    if(id == "iphone-5"){
+      jQuery('.phone-area').removeClass('iphone-6 iphone-7');
+      jQuery('.phone-area').addClass('iphone-5');
+    }
+    else if(id == "iphone-6"){
+      jQuery('.phone-area').removeClass('iphone-5 iphone-7');
+      jQuery('.phone-area').addClass('iphone-6');
+    }
+    else if(id == "iphone-7"){
+      jQuery('.phone-area').removeClass('iphone-6 iphone-5');
+      jQuery('.phone-area').addClass('iphone-7');
+    }
+  }
 }

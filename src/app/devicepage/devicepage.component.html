@@ -5,9 +5,10 @@
         <div class="col-md-2 leftpane">
 
           <div class="panel panel-default" dnd-draggable [dragEnabled]="true" *ngFor="let item of items"  [dragData]="item" >
-            <div class="panel-body">
-              <div>Drag Me</div>
+            <div class="panel-body widgets">
               <div>{{item | json}}</div>
+
+              <img *ngIf="item.imgUrl!=''" src="{{item.imgUrl}}"/>
             </div>
           </div>
 
@@ -16,7 +17,12 @@
           <a href="javascript:void(0);" (click)="downloadJSON()" class="btn btn-primary pull-right" style="margin-top: 8px;" >Export Json</a>
           <div dnd-droppable class="phone-area iphone-5" (onDropSuccess)="transferDataSuccess($event)">
             <div class="elements">
-              <div [hidden]="!receivedData.length > 0" *ngFor="let data of receivedData">{{data | json}}</div>
+              <div [hidden]="!receivedData.length > 0" *ngFor="let data of receivedData">
+                <img src="{{data.dragData.imgUrl}}" *ngIf="data.dragData.imgUrl != ''"/>
+
+                <!--<input type="{{data.dragData.form.type}}" *ngIf="data.dragData.form.data == true"/>-->
+                {{data.dragData | json}}
+                </div>
             </div>
             
           </div>

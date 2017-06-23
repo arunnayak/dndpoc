@@ -21,7 +21,8 @@ body{
 }
 
 .leftpane{
-    height: 70vw;
+    height: 75vw;
+    overflow-x: auto;
 }
 .leftpane{
     padding-top: 20px;
