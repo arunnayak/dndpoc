@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { saveAs } from 'file-saver';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,75 +10,83 @@ import { RouterModule, Routes } from '@angular/router';
 })
 
 export class DevicepageComponent {
-    public showNav : boolean = false;
+    public label : string = '';
+    public fieldType : string = '';
 
     constructor() {
-      this.showNav = false;
-
-      console.log(this.showNav);
+      this.label = 'label';
+      this.fieldType = 'Field type';
     }
 
     receivedData: Array<any> = [];
 
    "items" = [
     { 
-      "name": "name1", 
+      "type":"button",
+      "name": "button_name", 
       "id": 1, 
-      "description": "description1", 
-      "imgUrl": "../../assets/img/flash.jpg",
+      "class": "button-class", 
+      "imgUrl": "../../assets/img/btn.png",
+      "label": "Label",
+      "fieldType": "Text field",
+      "tableName": "Table name",
+      "feildName": "Field name",
+      "uiPosition": "UI Position",
+      "style": "Styles",
        "form": [
           {
-            "data": false
+              "label": "Label",
+              "fieldType": "Text field",
+              "tableName": "Table name",
+              "feildName": "Field name",
+              "uiPosition": "UI Position",
+              "style": "Styles"
           }
     ]},
     { 
-      "name": "name2", 
+      "type":"text",
+      "name": "text_name", 
       "id": 2, 
+      "class": "text-class", 
       "description": "description2", 
-      "imgUrl": "../../assets/img/arrow.jpg",
+      "imgUrl": "../../assets/img/txt-input.png",
+      "label": "Label",
+      "fieldType": "Text field",
+      "tableName": "Table name",
+      "feildName": "Field name",
+      "uiPosition": "UI Position",
+      "style": "Styles",
        "form": [
           {
-            "data": false
+              "label": "Label",
+              "fieldType": "Text field",
+              "tableName": "Table name",
+              "feildName": "Field name",
+              "uiPosition": "UI Position",
+              "style": "Styles"
           }
-      
-    ]},{ 
-      "name": "name3", 
-      "id": 3, 
-      "description": "description3", 
-      "imgUrl": "",
-       "form": [
-         {
-           "data": true,
-           "type": "button",
-           "name": "buttonName",
-           "id": "buttonId"
-         }
-      
-    ]},{ 
-      "name": "name4", 
-      "id": 4, 
-      "description": "description4", 
-      "imgUrl": "",
-       "form": [
-         {
-           "data": true,
-           "type": "text",
-           "name": "buttonName",
-           "id": "buttonId"
-         }
       
     ]}
 ]
 
     transferDataSuccess($event: any) {
         this.receivedData.push($event);
-        console.log(this.receivedData);
+    }
+
+  
+    addLabelvalue(value:any){
+        this.receivedData[0].dragData.label = value;
+    }
+
+    addFieldTypevalue(value:any){
+        this.receivedData[0].dragData.fieldType = value;
     }
 
     downloadJSON (){
       console.log('Downloading...');
       let formatToJson = JSON.stringify(this.receivedData);
       saveAs(new Blob([formatToJson], { type: "application/json" }), 'data.json');
+      console.log(formatToJson);
     }
     
 }

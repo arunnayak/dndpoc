@@ -20,13 +20,15 @@ body{
     clear: both;
 }
 
-.leftpane{
+.leftpane, .rightpane{
     height: 75vw;
     overflow-x: auto;
-}
-.leftpane{
     padding-top: 20px;
     background: #ddd;
+}
+.rightpane{
+    position: absolute;
+    right: 0;
 }
 .leftpane__items{
     margin: 0;

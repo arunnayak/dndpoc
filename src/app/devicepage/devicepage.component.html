@@ -6,27 +6,62 @@
 
           <div class="panel panel-default" dnd-draggable [dragEnabled]="true" *ngFor="let item of items"  [dragData]="item" >
             <div class="panel-body widgets">
-              <div>{{item | json}}</div>
-
+              <!--<div>{{item | json}}</div>-->
               <img *ngIf="item.imgUrl!=''" src="{{item.imgUrl}}"/>
             </div>
           </div>
 
         </div>
         <div class="col-md-10 area">
-          <a href="javascript:void(0);" (click)="downloadJSON()" class="btn btn-primary pull-right" style="margin-top: 8px;" >Export Json</a>
+          <a href="javascript:void(0);" (click)="downloadJSON()" class="btn btn-primary pull-left" style="margin-top: 8px;" >Export Json</a>
           <div dnd-droppable class="phone-area iphone-5" (onDropSuccess)="transferDataSuccess($event)">
             <div class="elements">
               <div [hidden]="!receivedData.length > 0" *ngFor="let data of receivedData">
+                
                 <img src="{{data.dragData.imgUrl}}" *ngIf="data.dragData.imgUrl != ''"/>
 
                 <!--<input type="{{data.dragData.form.type}}" *ngIf="data.dragData.form.data == true"/>-->
-                {{data.dragData | json}}
+                <!--{{data.dragData | json}}-->
                 </div>
             </div>
             
           </div>
           <!--<div class="panel-heading">Place to drop (Items:{{receivedData.length}})</div>-->
+        </div>
+
+        <div class="rightpane col-md-2"  [hidden]="!receivedData.length > 0" *ngFor="let data of receivedData">
+          <!--{{receivedData | json}}-->
+
+          <div class="form-group">
+            <label>Label</label>
+            <input type="text" #label (keyup)="addLabelvalue(label.value)" value="{{label}}" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label>Feild Type</label>
+            <input type="text" #fieldType (keyup)="addFieldTypevalue(fieldType.value)" value="{{fieldType}}" class="form-control">
+          </div>
+
+           <!--<div class="form-group">
+            <label >{{data.dragData.tableName}}</label>
+            <input type="text" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label >{{data.dragData.feildName}}</label>
+            <input type="text" class="form-control">
+          </div>
+
+           <div class="form-group">
+            <label >{{data.dragData.uiPosition}}</label>
+            <input type="text" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label >{{data.dragData.style}}</label>
+            <input type="text" class="form-control">
+          </div>-->
+
         </div>
       </div>
     </div>

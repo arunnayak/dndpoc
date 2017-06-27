@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Todo } from '../todo';
-import { TodoDataService } from '../todo-data.service';
+import { Todo } from '../todo/todo';
+import { TodoDataService } from '../todo/todo-data.service';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 declare var jQuery:any;
