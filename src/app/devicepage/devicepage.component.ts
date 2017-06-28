@@ -1,4 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit,
+            Input, Directive, ViewRef, ViewContainerRef, TemplateRef
+         } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { saveAs } from 'file-saver';
 import { RouterModule, Routes } from '@angular/router';
@@ -72,9 +74,9 @@ export class DevicepageComponent {
     transferDataSuccess($event: any) {
         this.receivedData.push($event);
     }
-
   
     addLabelvalue(value:any){
+        console.log(this.receivedData[0].dragData.type == 'button');
         this.receivedData[0].dragData.label = value;
     }
 

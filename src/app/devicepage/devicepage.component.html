@@ -42,25 +42,25 @@
             <input type="text" #fieldType (keyup)="addFieldTypevalue(fieldType.value)" value="{{fieldType}}" class="form-control">
           </div>
 
-           <!--<div class="form-group">
+           <div class="form-group">
             <label >{{data.dragData.tableName}}</label>
-            <input type="text" class="form-control">
+            <input type="text" #tableName (keyup)="addFieldTypevalue(tableName.value)" class="form-control">
           </div>
 
           <div class="form-group">
             <label >{{data.dragData.feildName}}</label>
-            <input type="text" class="form-control">
+            <input type="text" #feildName (keyup)="addFieldTypevalue(feildName.value)" class="form-control">
           </div>
 
            <div class="form-group">
             <label >{{data.dragData.uiPosition}}</label>
-            <input type="text" class="form-control">
+            <input type="text" #uiPosition (keyup)="addFieldTypevalue(uiPosition.value)" class="form-control">
           </div>
 
           <div class="form-group">
             <label >{{data.dragData.style}}</label>
-            <input type="text" class="form-control">
-          </div>-->
+            <input type="text" #style (keyup)="addFieldTypevalue(style.value)" class="form-control">
+          </div>
 
         </div>
       </div>
