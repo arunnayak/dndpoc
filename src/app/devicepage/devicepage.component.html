@@ -34,32 +34,32 @@
 
           <div class="form-group">
             <label>Label</label>
-            <input type="text" #label (keyup)="addLabelvalue(label.value)" value="{{label}}" class="form-control">
+            <input type="text" #label (keyup)="addLabelvalue(label.value)" placeholder="Label" class="form-control">
           </div>
 
           <div class="form-group">
-            <label>Feild Type</label>
-            <input type="text" #fieldType (keyup)="addFieldTypevalue(fieldType.value)" value="{{fieldType}}" class="form-control">
+            <label>Field Type</label>
+            <input type="text" #fieldType (keyup)="addFieldTypevalue(fieldType.value)" placeholder="Field type"  class="form-control">
           </div>
 
            <div class="form-group">
-            <label >{{data.dragData.tableName}}</label>
-            <input type="text" #tableName (keyup)="addFieldTypevalue(tableName.value)" class="form-control">
+            <label>Table name</label>
+            <input type="text" #tableName (keyup)="addTableNamevalue(tableName.value)" placeholder="Table name" class="form-control">
           </div>
 
           <div class="form-group">
-            <label >{{data.dragData.feildName}}</label>
-            <input type="text" #feildName (keyup)="addFieldTypevalue(feildName.value)" class="form-control">
+            <label >Field Name</label>
+            <input type="text" #feildName (keyup)="addFieldNamevalue(feildName.value)" placeholder="Field name" class="form-control">
           </div>
 
            <div class="form-group">
-            <label >{{data.dragData.uiPosition}}</label>
-            <input type="text" #uiPosition (keyup)="addFieldTypevalue(uiPosition.value)" class="form-control">
+            <label >UI Position</label>
+            <input type="text" #uiPosition (keyup)="addUIPositionvalue(uiPosition.value)" placeholder="UI position" class="form-control">
           </div>
 
           <div class="form-group">
-            <label >{{data.dragData.style}}</label>
-            <input type="text" #style (keyup)="addFieldTypevalue(style.value)" class="form-control">
+            <label >styles</label>
+            <input type="text" #style (keyup)="addStylesvalue(style.value)" placeholder="Styles" class="form-control">
           </div>
 
         </div>
