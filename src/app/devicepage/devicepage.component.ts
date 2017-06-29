@@ -36,7 +36,7 @@ export class DevicepageComponent {
     { 
       "type":"button",
       "name": "button_name", 
-      "id": 1, 
+      "id": 0, 
       "class": "button-class", 
       "imgUrl": "../../assets/img/btn.png",
       "form": {}
@@ -44,7 +44,7 @@ export class DevicepageComponent {
     { 
       "type":"text",
       "name": "text_name", 
-      "id": 2, 
+      "id": 1, 
       "class": "text-class", 
       "description": "description2", 
       "imgUrl": "../../assets/img/txt-input.png",
@@ -54,6 +54,8 @@ export class DevicepageComponent {
 
     transferDataSuccess($event: any) {
         this.receivedData.push($event);
+        let stringify = JSON.stringify(this.receivedData);
+        //console.log(this.receivedData[0].dragData.type);
     }
   
     addLabelvalue(value:any){
