@@ -6,6 +6,9 @@ import { saveAs } from 'file-saver';
 import { RouterModule, Routes } from '@angular/router';
 
 declare var jQuery:any;
+var x;
+var y;
+
 
 @Component({
   selector: 'app-devicepage',
@@ -51,62 +54,70 @@ export class DevicepageComponent {
       "form": {}
     }
 ]
-
+    
     transferDataSuccess($event: any) {
         this.receivedData.push($event);
-        let stringify = JSON.stringify(this.receivedData);
-        //console.log(this.receivedData[0].dragData.type);
+        //let stringify = JSON.stringify(this.receivedData);
+        //console.log(this.receivedData[0].dragData.type == 'button');
+        if(this.receivedData[0].dragData.type == 'button'){
+            x = 0;
+            y = 1;
+        }else{
+            x = 1;
+            y = 0;
+        }
     }
   
     addLabelvalue(value:any){
-        this.receivedData[0].dragData.form.label = value;
+        this.receivedData[x].dragData.form.label = value;
+        console.log(this.receivedData[x].dragData.form.label);
     }
 
     addFieldTypevalue(value:any){
-        this.receivedData[0].dragData.form.fieldType = value;
+        this.receivedData[x].dragData.form.fieldType = value;
         console.log(value);
     }
 
     addTableNamevalue(value:any){
-        this.receivedData[0].dragData.form.tableName = value;
+        this.receivedData[x].dragData.form.tableName = value;
     }
 
      addFieldNamevalue(value:any){
-        this.receivedData[0].dragData.form.fieldName = value;
+        this.receivedData[x].dragData.form.fieldName = value;
     }
 
      addUIPositionvalue(value:any){
-        this.receivedData[0].dragData.form.uiPosition = value;
+        this.receivedData[x].dragData.form.uiPosition = value;
     }
 
      addStylesvalue(value:any){
-        this.receivedData[0].dragData.form.styles = value;
+        this.receivedData[x].dragData.form.styles = value;
     }
 
     /*** text values ***/
 
     addLabel2value(value:any){
-        this.receivedData[1].dragData.form.label = value;
+        this.receivedData[y].dragData.form.label = value;
     }
 
     addFieldType2value(value:any){
-        this.receivedData[1].dragData.form.fieldType = value;
+        this.receivedData[y].dragData.form.fieldType = value;
     }
 
     addTableName2value(value:any){
-        this.receivedData[1].dragData.form.tableName = value;
+        this.receivedData[y].dragData.form.tableName = value;
     }
 
      addFieldName2value(value:any){
-        this.receivedData[1].dragData.form.fieldName = value;
+        this.receivedData[y].dragData.form.fieldName = value;
     }
 
      addUIPosition2value(value:any){
-        this.receivedData[1].dragData.form.uiPosition = value;
+        this.receivedData[y].dragData.form.uiPosition = value;
     }
 
      addStyles2value(value:any){
-        this.receivedData[1].dragData.form.styles = value;
+        this.receivedData[y].dragData.form.styles = value;
     }
 
     downloadJSON (){

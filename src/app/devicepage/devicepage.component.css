@@ -45,5 +45,7 @@ body{
 .panel{
     margin-bottom: 10px;
 }
-
+.panel:hover{
+    background: #efefef;
+}
 .button-panel, .text-panel{display: none;}
