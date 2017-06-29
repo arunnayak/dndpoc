@@ -13,12 +13,12 @@
 
         </div>
         <div class="col-md-10 area">
-          <a href="javascript:void(0);" (click)="downloadJSON()" class="btn btn-primary pull-left" style="margin-top: 8px;" >Export Json</a>
+          <a href="javascript:void(0);" (click)="downloadJSON()" class="export-button btn btn-primary pull-left" style="margin-top: 8px;" >Export Json</a>
           <div dnd-droppable class="phone-area iphone-5" (onDropSuccess)="transferDataSuccess($event)">
             <div class="elements">
               <div [hidden]="!receivedData.length > 0" *ngFor="let data of receivedData">
                 
-                <img src="{{data.dragData.imgUrl}}" *ngIf="data.dragData.imgUrl != ''"/>
+                <img src="{{data.dragData.imgUrl}}" (click)="showPanel(data.dragData)" *ngIf="data.dragData.imgUrl != ''"/>
 
                 <!--<input type="{{data.dragData.form.type}}" *ngIf="data.dragData.form.data == true"/>-->
                 <!--{{data.dragData | json}}-->
@@ -29,9 +29,7 @@
           <!--<div class="panel-heading">Place to drop (Items:{{receivedData.length}})</div>-->
         </div>
 
-        <div class="rightpane col-md-2"  [hidden]="!receivedData.length > 0" *ngFor="let data of receivedData">
-          <!--{{receivedData | json}}-->
-
+        <div class="rightpane col-md-2 button-panel" >
           <div class="form-group">
             <label>Label</label>
             <input type="text" #label (keyup)="addLabelvalue(label.value)" placeholder="Label" class="form-control">
@@ -59,10 +57,45 @@
 
           <div class="form-group">
             <label >styles</label>
-            <input type="text" #style (keyup)="addStylesvalue(style.value)" placeholder="Styles" class="form-control">
+            <input type="text" #styles (keyup)="addStylesvalue(styles.value)" placeholder="Styles" class="form-control">
           </div>
 
         </div>
+
+        <div class="rightpane col-md-2 text-panel" >
+        
+          <div class="form-group">
+            <label>Label</label>
+            <input type="text" #label2 (keyup)="addLabel2value(label2.value)" placeholder="Label" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label>Field Type</label>
+            <input type="text" #fieldType2 (keyup)="addFieldType2value(fieldType2.value)" placeholder="Field type"  class="form-control">
+          </div>
+
+           <div class="form-group">
+            <label>Table name</label>
+            <input type="text" #tableName2 (keyup)="addTableName2value(tableName2.value)" placeholder="Table name" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label >Field Name</label>
+            <input type="text" #feildName2 (keyup)="addFieldName2value(feildName2.value)" placeholder="Field name" class="form-control">
+          </div>
+
+           <div class="form-group">
+            <label >UI Position</label>
+            <input type="text" #uiPosition2 (keyup)="addUIPosition2value(uiPosition2.value)" placeholder="UI position" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label >styles</label>
+            <input type="text" #styles2 (keyup)="addStyles2value(styles2.value)" placeholder="Styles" class="form-control">
+          </div>
+
+        </div>
+
       </div>
     </div>
   </div>

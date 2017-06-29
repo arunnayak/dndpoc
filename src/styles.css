@@ -23,7 +23,7 @@ body{
 .leftpane, .rightpane{
     height: 75vw;
     overflow-x: auto;
-    padding-top: 20px;
+    padding: 10px;
     background: #ddd;
 }
 .rightpane{

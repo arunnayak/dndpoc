@@ -2,7 +2,6 @@ body{
     background: #fff;
 }
 
-img{width: 100%;}
 
 .iphone-5, .iphone-6, .iphone-7{
     margin: 0 auto;
@@ -38,3 +37,13 @@ img{width: 100%;}
     height: 504px;
     overflow-x: auto;
 }
+.export-button{
+    position: fixed;
+    top: 2px;
+    right: 20px;
+}
+.panel{
+    margin-bottom: 10px;
+}
+
+.button-panel, .text-panel{display: none;}

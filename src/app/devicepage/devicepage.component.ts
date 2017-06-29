@@ -5,6 +5,8 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import { saveAs } from 'file-saver';
 import { RouterModule, Routes } from '@angular/router';
 
+declare var jQuery:any;
+
 @Component({
   selector: 'app-devicepage',
   templateUrl: './devicepage.component.html',
@@ -36,7 +38,8 @@ export class DevicepageComponent {
       "name": "button_name", 
       "id": 1, 
       "class": "button-class", 
-      "imgUrl": "../../assets/img/btn.png"
+      "imgUrl": "../../assets/img/btn.png",
+      "form": {}
        },
     { 
       "type":"text",
@@ -44,37 +47,63 @@ export class DevicepageComponent {
       "id": 2, 
       "class": "text-class", 
       "description": "description2", 
-      "imgUrl": "../../assets/img/txt-input.png"
+      "imgUrl": "../../assets/img/txt-input.png",
+      "form": {}
     }
 ]
 
     transferDataSuccess($event: any) {
         this.receivedData.push($event);
-        console.log(this.receivedData.length);
     }
   
     addLabelvalue(value:any){
-        this.receivedData[0].dragData.label = value;
+        this.receivedData[0].dragData.form.label = value;
     }
 
     addFieldTypevalue(value:any){
-        this.receivedData[0].dragData.fieldType = value;
+        this.receivedData[0].dragData.form.fieldType = value;
     }
 
     addTableNamevalue(value:any){
-        this.receivedData[0].dragData.tableName = value;
+        this.receivedData[0].dragData.form.tableName = value;
     }
 
      addFieldNamevalue(value:any){
-        this.receivedData[0].dragData.fieldName = value;
+        this.receivedData[0].dragData.form.fieldName = value;
     }
 
      addUIPositionvalue(value:any){
-        this.receivedData[0].dragData.uiPosition = value;
+        this.receivedData[0].dragData.form.uiPosition = value;
     }
 
      addStylesvalue(value:any){
-        this.receivedData[0].dragData.styles = value;
+        this.receivedData[0].dragData.form.styles = value;
+    }
+
+    /*** text values ***/
+
+    addLabel2value(value:any){
+        this.receivedData[1].dragData.form.label = value;
+    }
+
+    addFieldType2value(value:any){
+        this.receivedData[1].dragData.form.fieldType = value;
+    }
+
+    addTableName2value(value:any){
+        this.receivedData[1].dragData.form.tableName = value;
+    }
+
+     addFieldName2value(value:any){
+        this.receivedData[1].dragData.form.fieldName = value;
+    }
+
+     addUIPosition2value(value:any){
+        this.receivedData[1].dragData.form.uiPosition = value;
+    }
+
+     addStyles2value(value:any){
+        this.receivedData[1].dragData.form.styles = value;
     }
 
     downloadJSON (){
@@ -83,5 +112,15 @@ export class DevicepageComponent {
       saveAs(new Blob([formatToJson], { type: "application/json" }), 'data.json');
       console.log(formatToJson);
     }
-    
+    showPanel(data){
+        console.log(data.type);
+        if(data.type=='button'){
+            jQuery('.button-panel').slideDown();
+            jQuery('.text-panel').slideUp();
+        }
+        if(data.type=='text'){
+            jQuery('.text-panel').slideDown();
+            jQuery('.button-panel').slideUp();
+        }
+    }
 }
