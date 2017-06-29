@@ -33,6 +33,9 @@ body{
     padding: 124px 22px 50px 23px;
     
 }
+.elements{
+    padding: 10px;
+}
 .iphone-5 .elements{
     height: 504px;
     overflow-x: auto;
@@ -49,3 +52,10 @@ body{
     background: #efefef;
 }
 .button-panel, .text-panel{display: none;}
+
+.form-comp.left{
+    float: left;
+}
+.form-comp.right{
+    float: right;
+}

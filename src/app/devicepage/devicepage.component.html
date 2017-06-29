@@ -17,9 +17,17 @@
           <div dnd-droppable class="phone-area iphone-5" (onDropSuccess)="transferDataSuccess($event)">
             <div class="elements">
               <div [hidden]="!receivedData.length > 0" *ngFor="let data of receivedData">
-                
-                <img src="{{data.dragData.imgUrl}}" (click)="showPanel(data.dragData)" *ngIf="data.dragData.imgUrl != ''"/>
 
+                <div class="form-group form-comp {{uiPosition.value}}" *ngIf="data.dragData.type == 'button'">
+                  <label>{{label.value}}</label>
+                  <input class="form-control btn btn-primary" [ngStyle]="styles.value" type="{{data.dragData.type}}" value="{{text.value}}" (click)="showPanel(data.dragData)" />
+                {{styles.value}}
+                </div>
+
+                <div class="form-group form-comp {{uiPosition2.value}}" *ngIf="data.dragData.type == 'text'">
+                  <label>{{label2.value}}</label>
+                  <input class="form-control" type="{{data.dragData.type}}" (click)="showPanel(data.dragData)"/>
+                </div>
                 <!--<input type="{{data.dragData.form.type}}" *ngIf="data.dragData.form.data == true"/>-->
                 <!--{{data.dragData | json}}-->
                 </div>
@@ -32,7 +40,12 @@
         <div class="rightpane col-md-2 button-panel" >
           <div class="form-group">
             <label>Label</label>
-            <input type="text" #label (keyup)="addLabelvalue(label.value)" placeholder="Label" class="form-control">
+            <input type="text" #label (blur)="addLabelvalue(label.value)" value="Label" placeholder="Label" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label>Text</label>
+            <input type="text" #text value="Button" (blur)="addTextvalue(text.value)" class="form-control">
           </div>
 
           <div class="form-group">
@@ -48,22 +61,22 @@
 
            <div class="form-group">
             <label>Table name</label>
-            <input type="text" #tableName (keyup)="addTableNamevalue(tableName.value)" placeholder="Table name" class="form-control">
+            <input type="text" #tableName (blur)="addTableNamevalue(tableName.value)" placeholder="Table name" class="form-control">
           </div>
 
           <div class="form-group">
             <label >Field Name</label>
-            <input type="text" #feildName (keyup)="addFieldNamevalue(feildName.value)" placeholder="Field name" class="form-control">
+            <input type="text" #feildName (blur)="addFieldNamevalue(feildName.value)" placeholder="Field name" class="form-control">
           </div>
 
            <div class="form-group">
             <label >UI Position</label>
-            <input type="text" #uiPosition (keyup)="addUIPositionvalue(uiPosition.value)" placeholder="UI position" class="form-control">
+            <input type="text" #uiPosition (blur)="addUIPositionvalue(uiPosition.value)" placeholder="UI position" class="form-control">
           </div>
 
           <div class="form-group">
             <label >styles</label>
-            <input type="text" #styles (keyup)="addStylesvalue(styles.value)" placeholder="Styles" class="form-control">
+            <textarea type="text" #styles (blur)="addStylesvalue(styles.value)" placeholder="Styles" class="form-control"></textarea>
           </div>
 
         </div>
@@ -72,7 +85,7 @@
         
           <div class="form-group">
             <label>Label</label>
-            <input type="text" #label2 (keyup)="addLabel2value(label2.value)" placeholder="Label" class="form-control">
+            <input type="text" #label2 (blur)="addLabel2value(label2.value)" value="label" placeholder="Label" class="form-control">
           </div>
 
           <div class="form-group">
@@ -88,22 +101,22 @@
 
            <div class="form-group">
             <label>Table name</label>
-            <input type="text" #tableName2 (keyup)="addTableName2value(tableName2.value)" placeholder="Table name" class="form-control">
+            <input type="text" #tableName2 (blur)="addTableName2value(tableName2.value)" placeholder="Table name" class="form-control">
           </div>
 
           <div class="form-group">
             <label >Field Name</label>
-            <input type="text" #feildName2 (keyup)="addFieldName2value(feildName2.value)" placeholder="Field name" class="form-control">
+            <input type="text" #feildName2 (blur)="addFieldName2value(feildName2.value)" placeholder="Field name" class="form-control">
           </div>
 
            <div class="form-group">
             <label >UI Position</label>
-            <input type="text" #uiPosition2 (keyup)="addUIPosition2value(uiPosition2.value)" placeholder="UI position" class="form-control">
+            <input type="text" #uiPosition2 (blur)="addUIPosition2value(uiPosition2.value)" placeholder="UI position" class="form-control">
           </div>
 
           <div class="form-group">
             <label >styles</label>
-            <input type="text" #styles2 (keyup)="addStyles2value(styles2.value)" placeholder="Styles" class="form-control">
+            <input type="text" #styles2 (blur)="addStyles2value(styles2.value)" placeholder="Styles" class="form-control">
           </div>
 
         </div>

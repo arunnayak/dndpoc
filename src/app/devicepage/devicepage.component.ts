@@ -23,14 +23,17 @@ export class DevicepageComponent {
     public fieldName : string = '';
     public uiPosition : string = '';
     public styles : string = '';
+    public text: string = ''; 
 
     constructor() {
         this.label = 'label';
         this.fieldType = 'Field type';
         this.tableName = 'table name'
         this.fieldName = 'field name'
-        this.uiPosition = 'UI position'
+        this.uiPosition = 'left'
         this.styles = 'styles'
+        this.text = 'text'
+        
     }
 
     receivedData: Array<any> = [];
@@ -38,7 +41,7 @@ export class DevicepageComponent {
    "items" = [
     { 
       "type":"button",
-      "name": "button_name", 
+      "name": "button_name",
       "id": 0, 
       "class": "button-class", 
       "imgUrl": "../../assets/img/btn.png",
@@ -71,6 +74,12 @@ export class DevicepageComponent {
     addLabelvalue(value:any){
         this.receivedData[x].dragData.form.label = value;
         console.log(this.receivedData[x].dragData.form.label);
+    }
+
+     addTextvalue(value:any, id){
+        this.receivedData[x].dragData.form.text = value;
+        jQuery(id).val(this.receivedData[x].dragData.form.text);
+        console.log(this.receivedData[x].dragData.form.text);
     }
 
     addFieldTypevalue(value:any){
@@ -123,7 +132,7 @@ export class DevicepageComponent {
     downloadJSON (){
       console.log('Downloading...');
       let formatToJson = JSON.stringify(this.receivedData);
-      saveAs(new Blob([formatToJson], { type: "application/json" }), 'data.json');
+      //saveAs(new Blob([formatToJson], { type: "application/json" }), 'data.json');
       console.log(formatToJson);
     }
     showPanel(data){
@@ -136,5 +145,9 @@ export class DevicepageComponent {
             jQuery('.text-panel').slideDown();
             jQuery('.button-panel').slideUp();
         }
+    }
+
+    replaceSpace(s:string) {
+    return s && s.replace(' ', " ' ");
     }
 }
