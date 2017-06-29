@@ -64,6 +64,7 @@ export class DevicepageComponent {
 
     addFieldTypevalue(value:any){
         this.receivedData[0].dragData.form.fieldType = value;
+        console.log(value);
     }
 
     addTableNamevalue(value:any){
