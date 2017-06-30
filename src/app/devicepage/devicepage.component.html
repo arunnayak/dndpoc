@@ -20,13 +20,12 @@
 
                 <div class="form-group form-comp {{uiPosition.value}}" *ngIf="data.dragData.type == 'button'">
                   <label>{{label.value}}</label>
-                  <input class="form-control btn btn-primary" [ngStyle]="styles.value" type="{{data.dragData.type}}" value="{{text.value}}" (click)="showPanel(data.dragData)" />
-                {{styles.value}}
+                  <input class="form-control btn btn-primary" value="{{text.value}}" (click)="showPanel(data.dragData)" />
                 </div>
-
+                
                 <div class="form-group form-comp {{uiPosition2.value}}" *ngIf="data.dragData.type == 'text'">
                   <label>{{label2.value}}</label>
-                  <input class="form-control" type="{{data.dragData.type}}" (click)="showPanel(data.dragData)"/>
+                  <input class="form-control input" type="{{data.dragData.type}}" (click)="showPanel(data.dragData)"/>
                 </div>
                 <!--<input type="{{data.dragData.form.type}}" *ngIf="data.dragData.form.data == true"/>-->
                 <!--{{data.dragData | json}}-->
@@ -76,7 +75,7 @@
 
           <div class="form-group">
             <label >styles</label>
-            <textarea type="text" #styles (blur)="addStylesvalue(styles.value)" placeholder="Styles" class="form-control"></textarea>
+            <textarea #styles (blur)="addStylesvalue(styles.value)" placeholder="Styles" class="form-control"></textarea>
           </div>
 
         </div>
@@ -116,7 +115,7 @@
 
           <div class="form-group">
             <label >styles</label>
-            <input type="text" #styles2 (blur)="addStyles2value(styles2.value)" placeholder="Styles" class="form-control">
+            <textarea #styles2 (blur)="addStyles2value(styles2.value)" placeholder="Styles" class="form-control"></textarea>
           </div>
 
         </div>

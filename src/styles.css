@@ -54,23 +54,6 @@ body{
     background: #f5f5f5;
 
 }
-.device__list{
-    text-align: left;
-    padding: 15px 0;
-    margin: 0;
-    display: inline-block;
-}
-.device__list-item{
-    list-style: none;
-    display: inline-block;
-    color: #000;
-    background: #fff;
-    padding: 2px 10px;
-    cursor: pointer;
-}
-.device__list-item:hover{
-    background: #ccc;
-}
 
 .area{
     padding-top: 50px;
@@ -80,3 +63,4 @@ body{
     border: 0;
     border-radius: 0;
 }
+

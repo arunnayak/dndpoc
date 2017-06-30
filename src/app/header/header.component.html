@@ -6,10 +6,11 @@
         <a class="navbar-brand" href="#">App Demo</a>
       </div>
       <div class="devices col-md-10" [hidden]="showNav == true">
+        
         <ul class="device__list">
-          <li class="device__list-item" id="iphone-5" (click)="changeDevice('iphone-5')">Iphone 5</li>
-          <li class="device__list-item" id="iphone-6" (click)="changeDevice('iphone-6')">Iphone 6</li>
-          <li class="device__list-item" id="iphone-7" (click)="changeDevice('iphone-7')">Iphone 6 plus</li>
+          <li class="ios device__list-item selected" id="iphone-5" (click)="changeDevice('iphone-5')">Iphone 5</li>
+          <li class="ios device__list-item" id="iphone-6" (click)="changeDevice('iphone-6')">Iphone 6</li>
+          <li class="andriod device__list-item" id="iphone-7" (click)="changeDevice('iphone-7')">Samsung s7</li>
         </ul>
         
       </div>

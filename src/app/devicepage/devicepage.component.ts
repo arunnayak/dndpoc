@@ -101,6 +101,9 @@ export class DevicepageComponent {
 
      addStylesvalue(value:any){
         this.receivedData[x].dragData.form.styles = value;
+
+        //todo
+        jQuery('.btn.form-control').attr("style", value);
     }
 
     /*** text values ***/
@@ -127,14 +130,18 @@ export class DevicepageComponent {
 
      addStyles2value(value:any){
         this.receivedData[y].dragData.form.styles = value;
+        
+        jQuery('.input.form-control').attr("style", value);
+        
     }
 
     downloadJSON (){
       console.log('Downloading...');
       let formatToJson = JSON.stringify(this.receivedData);
-      //saveAs(new Blob([formatToJson], { type: "application/json" }), 'data.json');
+      saveAs(new Blob([formatToJson], { type: "application/json" }), 'data.json');
       console.log(formatToJson);
     }
+
     showPanel(data){
         console.log(data.type);
         if(data.type=='button'){
@@ -145,9 +152,5 @@ export class DevicepageComponent {
             jQuery('.text-panel').slideDown();
             jQuery('.button-panel').slideUp();
         }
-    }
-
-    replaceSpace(s:string) {
-    return s && s.replace(' ', " ' ");
     }
 }

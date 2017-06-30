@@ -55,7 +55,9 @@ body{
 
 .form-comp.left{
     float: left;
+    width: 50%;
 }
 .form-comp.right{
     float: right;
+    width: 50%;
 }
