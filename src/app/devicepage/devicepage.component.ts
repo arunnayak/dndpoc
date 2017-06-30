@@ -44,7 +44,7 @@ export class DevicepageComponent {
       "name": "button_name",
       "id": 0, 
       "class": "button-class", 
-      "imgUrl": "../../assets/img/btn.png",
+      "imgUrl": "../../assets/img/btn-2.jpg",
       "form": {}
        },
     { 
@@ -53,7 +53,7 @@ export class DevicepageComponent {
       "id": 1, 
       "class": "text-class", 
       "description": "description2", 
-      "imgUrl": "../../assets/img/txt-input.png",
+      "imgUrl": "../../assets/img/text-2.jpg",
       "form": {}
     }
 ]

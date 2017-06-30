@@ -32,8 +32,26 @@ body{
     right: 0;
     border-right: 0;
     border-left: solid 1px #ccc;
+    background: #222;
     
 }
+.rightpane label{
+    color: #fff;
+    font-weight: normal;
+}
+.rightpane .form-control{
+    background: #222;
+    border: solid 1px #333;
+    border-radius: 0;
+    color: #888;
+    -webkit-box-shadow: none ;
+    -moz-box-shadow: none ;
+    box-shadow: none ;
+}
+.rightpane .form-control:focus{
+    background: #333;
+}
+
 .leftpane__items{
     margin: 0;
     padding: 0;

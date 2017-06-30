@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="row">
-        <div class="col-md-2 leftpane">
+        <div class="col-md-1 leftpane">
 
           <div class="panel panel-default" dnd-draggable [dragEnabled]="true" *ngFor="let item of items"  [dragData]="item" >
             <div class="panel-body widgets">
@@ -36,7 +36,7 @@
           <!--<div class="panel-heading">Place to drop (Items:{{receivedData.length}})</div>-->
         </div>
 
-        <div class="rightpane col-md-2 button-panel" >
+        <div class="rightpane col-md-3 button-panel" >
           <div class="form-group">
             <label>Label</label>
             <input type="text" #label (blur)="addLabelvalue(label.value)" value="Label" placeholder="Label" class="form-control">
