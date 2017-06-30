@@ -1,9 +1,10 @@
 import { Component, OnInit,
-            Input, Directive, ViewRef, ViewContainerRef, TemplateRef
+            Input 
          } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { saveAs } from 'file-saver';
 import { RouterModule, Routes } from '@angular/router';
+import { HeaderComponent } from '../header/header.component';
 
 declare var jQuery:any;
 var x;
@@ -17,6 +18,7 @@ var y;
 })
 
 export class DevicepageComponent {
+
     public label : string = '';
     public fieldType : string = '';
     public tableName : string = '';

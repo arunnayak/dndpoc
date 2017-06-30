@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DevicepageComponent } from '../devicepage/devicepage.component';
 
@@ -15,7 +15,6 @@ export class HeaderComponent {
   //jsonData = DevicepageComponent
 
   changeDevice(id){
-    console.log(id);
     jQuery('.device__list li').removeClass('selected');
     if(id == "iphone-5"){
       jQuery('#'+id).toggleClass('selected');

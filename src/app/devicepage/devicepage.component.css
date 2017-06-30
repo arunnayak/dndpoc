@@ -25,9 +25,10 @@ body{
     height: 1000px;
 }
 .iphone-7{
-    background: url("../../assets/img/iphone-6-plus-portrait.png") no-repeat;
-    width: 462px;
-    height: 1000px;
+    background: url("../../assets/img/android-nexus-4-portrait.png") no-repeat;
+    width: 428px;
+    height: 915px;
+    padding: 90px 22px 228px 23px !important;
 }
 .phone-area{
     padding: 124px 22px 50px 23px;
