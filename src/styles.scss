@@ -1,9 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
-
-/*these styles needs to be added into the compnents in scss when it's created*/
 body{
-    background: #ddd;
+    background: #fff;
+    padding-top: 50px;
 }
+.nopadding{
+    padding: 0 !important;
+}
+
+
+
+
 .apps{
     background: #fff;
     padding: 10px;
@@ -20,21 +25,21 @@ body{
     clear: both;
 }
 
-.leftpane, .rightpane{
-    height: 75vw;
-    overflow-x: auto;
-    padding: 10px;
-    background: #ddd;
-    border-right: solid 1px #ccc;
-}
-.rightpane{
-    position: absolute;
-    right: 0;
-    border-right: 0;
-    border-left: solid 1px #ccc;
-    background: #222;
+// .leftpane, .rightpane{
+//     height: 75vw;
+//     overflow-x: auto;
+//     padding: 10px;
+//     background: #ddd;
+//     border-right: solid 1px #ccc;
+// }
+// .rightpane{
+//     position: absolute;
+//     right: 0;
+//     border-right: 0;
+//     border-left: solid 1px #ccc;
+//     background: #222;
     
-}
+// }
 .rightpane label{
     color: #fff;
     font-weight: normal;

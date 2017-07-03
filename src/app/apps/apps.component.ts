@@ -7,7 +7,7 @@ declare var jQuery:any;
 @Component({
   selector: 'app-apps',
   templateUrl: './apps.component.html',
-  styleUrls: ['./apps.component.css'],
+  styleUrls: ['./apps.component.scss'],
   providers: [TodoDataService],
   inputs: ['search']
 })

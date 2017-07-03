@@ -4,16 +4,16 @@
       <div class="row">
         <div class="col-md-1 leftpane">
 
-          <div class="panel panel-default" dnd-draggable [dragEnabled]="true" *ngFor="let item of items"  [dragData]="item" >
+          <div class="panel panel-default" dnd-draggable [dragEnabled]="true" *ngFor="let item of items" [dragData]="item">
             <div class="panel-body widgets">
               <!--<div>{{item | json}}</div>-->
-              <img *ngIf="item.imgUrl!=''" src="{{item.imgUrl}}"/>
+              <img *ngIf="item.imgUrl!=''" src="{{item.imgUrl}}" />
             </div>
           </div>
 
         </div>
         <div class="col-md-10 area">
-          <a href="javascript:void(0);" (click)="downloadJSON()" class="export-button btn btn-primary pull-left" style="margin-top: 8px;" >Export Json</a>
+          <a href="javascript:void(0);" (click)="downloadJSON()" class="export-button btn btn-primary pull-left" style="margin-top: 8px;">Export Json</a>
           <div dnd-droppable class="phone-area iphone-5" (onDropSuccess)="transferDataSuccess($event)">
             <div class="elements">
               <div [hidden]="!receivedData.length > 0" *ngFor="let data of receivedData">
@@ -22,21 +22,27 @@
                   <label>{{label.value}}</label>
                   <input class="form-control btn btn-primary" value="{{text.value}}" (click)="showPanel(data.dragData)" />
                 </div>
-                
+
                 <div class="form-group form-comp {{uiPosition2.value}}" *ngIf="data.dragData.type == 'text'">
                   <label>{{label2.value}}</label>
-                  <input class="form-control input" type="{{data.dragData.type}}" (click)="showPanel(data.dragData)"/>
+                  <input class="form-control input" type="{{data.dragData.type}}" (click)="showPanel(data.dragData)" />
                 </div>
                 <!--<input type="{{data.dragData.form.type}}" *ngIf="data.dragData.form.data == true"/>-->
                 <!--{{data.dragData | json}}-->
-                </div>
+              </div>
             </div>
-            
+
           </div>
           <!--<div class="panel-heading">Place to drop (Items:{{receivedData.length}})</div>-->
         </div>
 
-        <div class="rightpane col-md-3 button-panel" >
+        <div class="rightpane col-md-3 button-panel">
+
+          <!--<json-schema-form
+            [data]="exampleJsonObject"
+            (onSubmit)="yourOnSubmitFn($event)">
+          </json-schema-form>-->
+
           <div class="form-group">
             <label>Label</label>
             <input type="text" #label (blur)="addLabelvalue(label.value)" value="Label" placeholder="Label" class="form-control">
@@ -49,7 +55,7 @@
 
           <div class="form-group">
             <label>Field Type</label>
-              <select #fieldType (change)="addFieldTypevalue(fieldType.value)"  class="form-control">
+            <select #fieldType (change)="addFieldTypevalue(fieldType.value)" class="form-control">
                 <option>
                   Select field type
                 </option>
@@ -58,30 +64,29 @@
               </select>
           </div>
 
-           <div class="form-group">
+          <div class="form-group">
             <label>Table name</label>
             <input type="text" #tableName (blur)="addTableNamevalue(tableName.value)" placeholder="Table name" class="form-control">
           </div>
 
           <div class="form-group">
-            <label >Field Name</label>
+            <label>Field Name</label>
             <input type="text" #feildName (blur)="addFieldNamevalue(feildName.value)" placeholder="Field name" class="form-control">
           </div>
 
-           <div class="form-group">
-            <label >UI Position</label>
+          <div class="form-group">
+            <label>UI Position</label>
             <input type="text" #uiPosition (blur)="addUIPositionvalue(uiPosition.value)" placeholder="UI position" class="form-control">
           </div>
 
           <div class="form-group">
-            <label >styles</label>
+            <label>styles</label>
             <textarea #styles (blur)="addStylesvalue(styles.value)" placeholder="Styles" class="form-control"></textarea>
           </div>
-
         </div>
 
-        <div class="rightpane col-md-3 text-panel" >
-        
+        <div class="rightpane col-md-3 text-panel">
+
           <div class="form-group">
             <label>Label</label>
             <input type="text" #label2 (blur)="addLabel2value(label2.value)" value="label" placeholder="Label" class="form-control">
@@ -89,7 +94,7 @@
 
           <div class="form-group">
             <label>Field Type</label>
-            <select #fieldType2 (change)="addFieldType2value(fieldType2.value)"  class="form-control">
+            <select #fieldType2 (change)="addFieldType2value(fieldType2.value)" class="form-control">
               <option>
                 Select field type
               </option>
@@ -98,23 +103,23 @@
             </select>
           </div>
 
-           <div class="form-group">
+          <div class="form-group">
             <label>Table name</label>
             <input type="text" #tableName2 (blur)="addTableName2value(tableName2.value)" placeholder="Table name" class="form-control">
           </div>
 
           <div class="form-group">
-            <label >Field Name</label>
+            <label>Field Name</label>
             <input type="text" #feildName2 (blur)="addFieldName2value(feildName2.value)" placeholder="Field name" class="form-control">
           </div>
 
-           <div class="form-group">
-            <label >UI Position</label>
+          <div class="form-group">
+            <label>UI Position</label>
             <input type="text" #uiPosition2 (blur)="addUIPosition2value(uiPosition2.value)" placeholder="UI position" class="form-control">
           </div>
 
           <div class="form-group">
-            <label >styles</label>
+            <label>styles</label>
             <textarea #styles2 (blur)="addStyles2value(styles2.value)" placeholder="Styles" class="form-control"></textarea>
           </div>
 

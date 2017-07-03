@@ -9,13 +9,16 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 //import { AlertModule } from 'ngx-bootstrap'; //uncomment this line when we need an alert module
 //import { DragulaModule } from 'ng2-dragula'; //============ third party module ==============//
 import { DndModule } from 'ng2-dnd';
+import { JsonSchemaFormModule } from 'angular2-json-schema-form';
+import { AngularSplitModule } from 'angular-split';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { AppsComponent } from './apps/apps.component';
 import { DevicepageComponent } from './devicepage/devicepage.component';
-import { firebaseConfig } from './firebaseConfig'
+import { firebaseConfig } from './firebaseConfig';
+import { LeftpaneheaderComponent } from './leftpaneheader/leftpaneheader.component'
 
 const appRoutes: Routes  = [
     { path: '', component: AppsComponent, data:{ name: 'Home'}},
@@ -29,7 +32,8 @@ const appRoutes: Routes  = [
     HeaderComponent,
     FooterComponent,
     AppsComponent,
-    DevicepageComponent
+    DevicepageComponent,
+    LeftpaneheaderComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,9 @@ const appRoutes: Routes  = [
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(firebaseConfig),
     DndModule.forRoot(),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    JsonSchemaFormModule,
+    AngularSplitModule
     //AlertModule.forRoot() //uncomment this line when we need an alert module
   ],
   providers: [],
