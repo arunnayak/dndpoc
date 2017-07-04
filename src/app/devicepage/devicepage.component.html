@@ -7,7 +7,11 @@
   <split-area [size]="50">
     <div class="device-area">
       <app-top-bar></app-top-bar>
-      
+
+      <a href="#" class="device-area__full-screen glyphicon glyphicon-fullscreen"></a>
+      <div class="device-area__phone device-area__iphone-5" dnd-droppable (onDropSuccess)="transferDataSuccess($event)">
+        
+      </div>
     </div>
   </split-area>
   <split-area [size]="30">

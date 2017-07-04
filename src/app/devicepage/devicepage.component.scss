@@ -1,20 +1,42 @@
 :host(app-devicepage) {
     display: block;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 50px);
 }
 .device-area{
     background: #f0f0f0;
     width: 100%;
     height: 100%;
+    position: relative;
+
+    &__phone{
+        margin: 30px auto;
+        overflow: auto;
+        background: #fff;
+        border-radius: 10px;
+    }
+
+    &__iphone-5{
+        background: url("../../assets/img/iphone-5.png") no-repeat;
+        width: 367px;
+        height: 480px;
+    }
+
+    &__full-screen{
+        color: #888;
+        font-size: 16px;
+        position: absolute;
+        left: 0;
+        top: 65px;
+        transition: font-size 0.3s ease;
+
+        &:hover{
+            font-size: 17px;
+            color: #000;
+            text-decoration: none;
+        }
+    }
 }
-
-
-// body{
-//     background: #fff;
-// }
-
-
 // .iphone-5, .iphone-6, .iphone-7{
 //     margin: 0 auto;
 //     overflow: auto;
