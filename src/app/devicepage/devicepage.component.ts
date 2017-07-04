@@ -1,18 +1,14 @@
-import {
-    Component, OnInit,
-    Input
-} from '@angular/core';
+import {Component} from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { saveAs } from 'file-saver';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { LeftpaneheaderComponent } from '../leftpaneheader/leftpaneheader.component';
-
+import { TabContainerComponent } from '../tab-container/tab-container.component';
 
 declare var jQuery: any;
 var x;
 var y;
-
 
 @Component({
     selector: 'app-devicepage',
@@ -23,19 +19,17 @@ var y;
                     <app-leftpaneheader></app-leftpaneheader>
                 </div>
             </split-area>
-            <split-area [size]="55">
-                Center
+            <split-area [size]="50">
+                <div class="device-area"></div>
             </split-area>
-            <split-area [size]="25">
-                Right
+            <split-area [size]="30">
+                <app-tab-container></app-tab-container>
             </split-area>
             </split>
             `,
-    styles: [`:host {
-      display: block;
-      width: 100%;
-      height: 100vh;
-    }`]
+
+      styleUrls: ['./devicepage.component.scss']
+    
 })
 
 export class DevicepageComponent {

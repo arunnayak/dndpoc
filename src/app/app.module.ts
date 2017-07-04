@@ -11,6 +11,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { DndModule } from 'ng2-dnd';
 import { JsonSchemaFormModule } from 'angular2-json-schema-form';
 import { AngularSplitModule } from 'angular-split';
+import { Ng2TabModule } from 'Ng2-Tab';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -18,7 +19,9 @@ import { HeaderComponent } from './header/header.component';
 import { AppsComponent } from './apps/apps.component';
 import { DevicepageComponent } from './devicepage/devicepage.component';
 import { firebaseConfig } from './firebaseConfig';
-import { LeftpaneheaderComponent } from './leftpaneheader/leftpaneheader.component'
+import { LeftpaneheaderComponent } from './leftpaneheader/leftpaneheader.component';
+import { TabContainerComponent } from './tab-container/tab-container.component'
+
 
 const appRoutes: Routes  = [
     { path: '', component: AppsComponent, data:{ name: 'Home'}},
@@ -33,7 +36,8 @@ const appRoutes: Routes  = [
     FooterComponent,
     AppsComponent,
     DevicepageComponent,
-    LeftpaneheaderComponent
+    LeftpaneheaderComponent,
+    TabContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,8 @@ const appRoutes: Routes  = [
     DndModule.forRoot(),
     AngularFireDatabaseModule,
     JsonSchemaFormModule,
-    AngularSplitModule
+    AngularSplitModule,
+    Ng2TabModule
     //AlertModule.forRoot() //uncomment this line when we need an alert module
   ],
   providers: [],
