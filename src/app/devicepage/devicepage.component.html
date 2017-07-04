@@ -1,12 +1,27 @@
-<div class="container-fluid" style="background: #fff;">
-  <div class="row">
+<split direction="horizontal">
+  <split-area [size]="20">
+    <div class="leftpane">
+      <app-leftpaneheader></app-leftpaneheader>
+    </div>
+  </split-area>
+  <split-area [size]="50">
+    <div class="device-area">
+      <app-top-bar></app-top-bar>
+      
+    </div>
+  </split-area>
+  <split-area [size]="30">
+    <app-tab-container></app-tab-container>
+  </split-area>
+</split>
+
+<!--<div class="row">
     <div class="col-md-12">
       <div class="row">
         <div class="col-md-1 leftpane">
 
           <div class="panel panel-default" dnd-draggable [dragEnabled]="true" *ngFor="let item of items" [dragData]="item">
             <div class="panel-body widgets">
-              <!--<div>{{item | json}}</div>-->
               <img *ngIf="item.imgUrl!=''" src="{{item.imgUrl}}" />
             </div>
           </div>
@@ -27,23 +42,20 @@
                   <label>{{label2.value}}</label>
                   <input class="form-control input" type="{{data.dragData.type}}" (click)="showPanel(data.dragData)" />
                 </div>
-                <!--<input type="{{data.dragData.form.type}}" *ngIf="data.dragData.form.data == true"/>-->
-                <!--{{data.dragData | json}}-->
               </div>
             </div>
 
           </div>
-          <!--<div class="panel-heading">Place to drop (Items:{{receivedData.length}})</div>-->
         </div>
 
-        <div class="rightpane col-md-3 button-panel">
+        <div class="rightpane col-md-3 button-panel">-->
 
-          <!--<json-schema-form
+<!--<json-schema-form
             [data]="exampleJsonObject"
             (onSubmit)="yourOnSubmitFn($event)">
           </json-schema-form>-->
 
-          <div class="form-group">
+<!--<div class="form-group">
             <label>Label</label>
             <input type="text" #label (blur)="addLabelvalue(label.value)" value="Label" placeholder="Label" class="form-control">
           </div>
@@ -127,5 +139,4 @@
 
       </div>
     </div>
-  </div>
-</div>
+  </div>-->

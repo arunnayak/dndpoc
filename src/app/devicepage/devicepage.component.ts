@@ -2,9 +2,11 @@ import {Component} from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { saveAs } from 'file-saver';
 import { RouterModule, Routes } from '@angular/router';
+
 import { HeaderComponent } from '../header/header.component';
 import { LeftpaneheaderComponent } from '../leftpaneheader/leftpaneheader.component';
 import { TabContainerComponent } from '../tab-container/tab-container.component';
+import { TopBarComponent } from '../top-bar/top-bar.component';
 
 declare var jQuery: any;
 var x;
@@ -12,23 +14,8 @@ var y;
 
 @Component({
     selector: 'app-devicepage',
-    template: `
-            <split direction="horizontal">
-            <split-area [size]="20">
-                <div class="leftpane">
-                    <app-leftpaneheader></app-leftpaneheader>
-                </div>
-            </split-area>
-            <split-area [size]="50">
-                <div class="device-area"></div>
-            </split-area>
-            <split-area [size]="30">
-                <app-tab-container></app-tab-container>
-            </split-area>
-            </split>
-            `,
-
-      styleUrls: ['./devicepage.component.scss']
+    templateUrl: './devicepage.component.html',
+    styleUrls: ['./devicepage.component.scss']
     
 })
 
