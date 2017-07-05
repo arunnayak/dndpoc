@@ -6,11 +6,31 @@
   </split-area>
   <split-area [size]="50">
     <div class="device-area">
-      <app-top-bar></app-top-bar>
+        <div class="device-area__full-screen-container" [class.active]="isFullScreenActive">
+         
+          <!--top bar-->
+          <div class="device-area__topbar">
+            <div class="row">
+              <div class="col-md-5">
+                <select #device class="form-control" (change)="changeDevice(device.value)">
+                    <option value="iphone">Iphone</option>
+                    <option value="android">Android</option>
+                    <option value="ipad">Ipad</option>
+                    <option value="androidTab">Android Tab</option>
+                  </select>
+              </div>
+              <span class="device-area__rotate-icon" [hidden]="!sh.showhide.show"></span>
+              <div class="col-md-4 pull-right text-right">
+                <button class="btn btn-primary">Save</button>
+                <button class="btn btn-default">Preview</button>
+              </div>
+            </div>
+          </div>
+          <!--top bar-->
 
-      <a href="#" class="device-area__full-screen glyphicon glyphicon-fullscreen"></a>
-      <div class="device-area__phone device-area__iphone-5" dnd-droppable (onDropSuccess)="transferDataSuccess($event)">
-        
+          <span href="#" class="device-area__full-screen-button glyphicon glyphicon-fullscreen" (click)=fullScreen()></span>
+          <div class="device-area__all device-area__{{device.value}}" dnd-droppable (onDropSuccess)="transferDataSuccess($event)">
+        </div>
       </div>
     </div>
   </split-area>

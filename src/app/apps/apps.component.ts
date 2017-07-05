@@ -8,8 +8,7 @@ declare var jQuery:any;
   selector: 'app-apps',
   templateUrl: './apps.component.html',
   styleUrls: ['./apps.component.scss'],
-  providers: [TodoDataService],
-  inputs: ['search']
+  providers: [TodoDataService]
 })
 
 export class AppsComponent {

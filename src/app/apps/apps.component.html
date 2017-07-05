@@ -4,8 +4,7 @@
       <div class="row">
         <div class="col-md-3">
           <div>
-            <input type="text" placeholder="Search apps" class="form-control" id="search" >
-            {{val}}
+            <input type="text" placeholder="Search apps" class="form-control" id="search">
           </div>
         </div>
         <div class="col-md-9">
@@ -24,14 +23,13 @@
               <div class="apps__list-date">{{item.date}}</div>
             </div>
             <div class="col-md-2" style="text-align: right;">
-              <button type="button" class="btn btn-primary btn-xs"  data-toggle="modal" data-target="#createAppModal" (click)="updateTodo(item.$key)">Edit</button>
+              <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#createAppModal" (click)="updateTodo(item.$key)">Edit</button>
               <button type="button" class="btn btn-primary btn-xs">Copy</button>
               <button type="button" class="btn btn-danger btn-xs" (click)="removeTodo(item.$key)">Delete</button>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>

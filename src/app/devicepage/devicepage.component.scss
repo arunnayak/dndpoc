@@ -9,34 +9,79 @@
     height: 100%;
     position: relative;
 
-    &__phone{
-        margin: 30px auto;
-        overflow: auto;
+    &__topbar{
         background: #fff;
+        padding: 10px 5px;
+        border-bottom: solid 1px #ccc;
+    }
+
+    &__rotate-icon{
+        background: url("../../assets/img/rotate.png") no-repeat 0 0 / 100% 100%;
+        width: 22px;
+        height: 22px;
+        float: left;
+        margin-top: 5px;
+        -webkit-transition: -webkit-transform .8s ease-in-out;
+        transition:  transform .3s ease-in-out;
+        cursor: pointer;
+
+        &:hover{
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+    }
+
+    &__all{
+        margin: 5px auto;
+        overflow: auto;
         border-radius: 10px;
+        height: calc( 90vh - 55px ); /* removed top bar height, subject to change*/ 
     }
 
-    &__iphone-5{
-        background: url("../../assets/img/iphone-5.png") no-repeat;
-        width: 367px;
-        height: 480px;
+    &__iphone{
+        background: url("../../assets/img/iPhone.png") no-repeat 0 0;
+        width: 260px;
     }
 
-    &__full-screen{
+    &__ipad{
+        background: url("../../assets/img/iPad.png") no-repeat 0 0;
+        width: 360px;
+    }
+
+    &__full-screen-container{
+        
+        transition: background 0.2s ease;
+        
+        &.active{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: #fff;
+            z-index: 11;
+            
+        }
+        
+    }
+    &__full-screen-button{
         color: #888;
-        font-size: 16px;
+        font-size: 20px;
         position: absolute;
         left: 0;
         top: 65px;
-        transition: font-size 0.3s ease;
+        transition: font-size 0.2s ease;
+        padding: 10px;
+        cursor: pointer;
 
         &:hover{
-            font-size: 17px;
             color: #000;
             text-decoration: none;
+            font-size: 22px;
         }
     }
 }
+
 // .iphone-5, .iphone-6, .iphone-7{
 //     margin: 0 auto;
 //     overflow: auto;

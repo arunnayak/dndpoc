@@ -6,7 +6,8 @@
         color: #242424;
         // > mixins
         transition: color 1s ease;
-
+        cursor: pointer;
+        
         &:hover{
             color: #8c8c8c;
             text-decoration: none;

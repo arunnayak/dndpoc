@@ -6,7 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { LeftpaneheaderComponent } from '../leftpaneheader/leftpaneheader.component';
 import { TabContainerComponent } from '../tab-container/tab-container.component';
-import { TopBarComponent } from '../top-bar/top-bar.component';
+
+import { ShowHideSharedService } from '../../app/show-hide-shared.service';
 
 declare var jQuery: any;
 var x;
@@ -15,8 +16,8 @@ var y;
 @Component({
     selector: 'app-devicepage',
     templateUrl: './devicepage.component.html',
-    styleUrls: ['./devicepage.component.scss']
-    
+    styleUrls: ['./devicepage.component.scss'],
+    providers:[ShowHideSharedService]
 })
 
 export class DevicepageComponent {
@@ -29,7 +30,8 @@ export class DevicepageComponent {
     public styles: string = '';
     public text: string = '';
 
-    constructor() {
+    constructor(private sh: ShowHideSharedService) {
+
         this.label = 'label';
         this.fieldType = 'Field type';
         this.tableName = 'table name'
@@ -168,5 +170,19 @@ export class DevicepageComponent {
             jQuery('.text-panel').slideDown();
             jQuery('.button-panel').slideUp();
         }
+    }
+
+
+    //New functions
+    public isFullScreenActive: boolean = false;
+    
+    fullScreen(){
+        this.isFullScreenActive = !this.isFullScreenActive;
+        this.sh.hide();
+    }
+
+    changeDevice(val){
+        console.log(val);
+        
     }
 }

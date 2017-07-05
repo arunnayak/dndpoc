@@ -21,7 +21,6 @@ import { DevicepageComponent } from './devicepage/devicepage.component';
 import { firebaseConfig } from './firebaseConfig';
 import { LeftpaneheaderComponent } from './leftpaneheader/leftpaneheader.component';
 import { TabContainerComponent } from './tab-container/tab-container.component';
-import { TopBarComponent } from './top-bar/top-bar.component'
 
 
 const appRoutes: Routes  = [
@@ -38,8 +37,7 @@ const appRoutes: Routes  = [
     AppsComponent,
     DevicepageComponent,
     LeftpaneheaderComponent,
-    TabContainerComponent,
-    TopBarComponent
+    TabContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -49,9 +47,9 @@ const appRoutes: Routes  = [
     AngularFireModule.initializeApp(firebaseConfig),
     DndModule.forRoot(),
     AngularFireDatabaseModule,
+    Ng2TabModule,    
     JsonSchemaFormModule,
-    AngularSplitModule,
-    Ng2TabModule
+    AngularSplitModule
     //AlertModule.forRoot() //uncomment this line when we need an alert module
   ],
   providers: [],
