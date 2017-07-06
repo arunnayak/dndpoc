@@ -3,10 +3,9 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import { saveAs } from 'file-saver';
 import { RouterModule, Routes } from '@angular/router';
 
+import { TabsComponent } from '../tabs/tabs.component';
 import { HeaderComponent } from '../header/header.component';
-import { LeftpaneheaderComponent } from '../leftpaneheader/leftpaneheader.component';
-import { TabContainerComponent } from '../tab-container/tab-container.component';
-
+import { LeftpaneComponent } from '../leftpane/leftpane.component';
 import { ShowHideSharedService } from '../../app/show-hide-shared.service';
 
 declare var jQuery: any;
@@ -175,6 +174,7 @@ export class DevicepageComponent {
 
     //New functions
     public isFullScreenActive: boolean = false;
+    public rotate: boolean = false;
     
     fullScreen(){
         this.isFullScreenActive = !this.isFullScreenActive;
@@ -182,7 +182,12 @@ export class DevicepageComponent {
     }
 
     changeDevice(val){
-        console.log(val);
-        
+        console.log(val); 
+    }
+
+    rotateScreen(val){
+
+        this.rotate=!this.rotate
+
     }
 }

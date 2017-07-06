@@ -36,6 +36,7 @@
         overflow: auto;
         border-radius: 10px;
         height: calc( 90vh - 55px ); /* removed top bar height, subject to change*/ 
+        transition: transform 0.2s ease;
     }
 
     &__iphone{
@@ -43,9 +44,39 @@
         width: 260px;
     }
 
+    &__iphone--true{
+         -webkit-transform: rotate(90deg);
+         transform: rotate(90deg);
+    }
+
     &__ipad{
         background: url("../../assets/img/iPad.png") no-repeat 0 0;
         width: 360px;
+    }
+    
+     &__ipad--true{
+         -webkit-transform: rotate(90deg);
+         transform: rotate(90deg);
+    }
+
+    &__android{
+        background: url("../../assets/img/android-mobile.png") no-repeat 0 0;
+        width: 260px;
+    }
+
+    &__android--true{
+         -webkit-transform: rotate(90deg);
+         transform: rotate(90deg);
+    }
+
+    &__android-tab{
+        background: url("../../assets/img/android-tab.png") no-repeat 0 0;
+        width: 360px;
+    }
+    
+     &__android-tab--true{
+         -webkit-transform: rotate(90deg);
+         transform: rotate(90deg);
     }
 
     &__full-screen-container{

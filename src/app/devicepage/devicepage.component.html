@@ -1,7 +1,7 @@
 <split direction="horizontal">
   <split-area [size]="20">
     <div class="leftpane">
-      <app-leftpaneheader></app-leftpaneheader>
+      <app-leftpane></app-leftpane>
     </div>
   </split-area>
   <split-area [size]="50">
@@ -16,10 +16,10 @@
                     <option value="iphone">Iphone</option>
                     <option value="android">Android</option>
                     <option value="ipad">Ipad</option>
-                    <option value="androidTab">Android Tab</option>
+                    <option value="android-tab">Android Tab</option>
                   </select>
               </div>
-              <span class="device-area__rotate-icon" [hidden]="!sh.showhide.show"></span>
+              <span class="device-area__rotate-icon" (click)="rotateScreen(device.value)" [hidden]="!sh.showhide.show"></span>
               <div class="col-md-4 pull-right text-right">
                 <button class="btn btn-primary">Save</button>
                 <button class="btn btn-default">Preview</button>
@@ -29,13 +29,13 @@
           <!--top bar-->
 
           <span href="#" class="device-area__full-screen-button glyphicon glyphicon-fullscreen" (click)=fullScreen()></span>
-          <div class="device-area__all device-area__{{device.value}}" dnd-droppable (onDropSuccess)="transferDataSuccess($event)">
+          <div class="device-area__all device-area__{{device.value}} device-area__{{device.value}}--{{rotate}}" dnd-droppable (onDropSuccess)="transferDataSuccess($event)">
         </div>
       </div>
     </div>
   </split-area>
   <split-area [size]="30">
-    <app-tab-container></app-tab-container>
+    <app-tabs></app-tabs>
   </split-area>
 </split>
 
