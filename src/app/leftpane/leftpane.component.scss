@@ -21,7 +21,6 @@
     }
 
     &__tree-btn{
-        background: #39AAD7;
         font-size: 9px;
         border-radius: 20px;
         font-weight: 500;
@@ -32,6 +31,13 @@
         right: 10px;
         top: 5px;
         outline: none;
+        background: #ddd;
+        
+        &.enable{
+            background: #39AAD7;
+        }
     }
 }
+
+
 //Angular tree custom overwrite

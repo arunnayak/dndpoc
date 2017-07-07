@@ -20,17 +20,29 @@
                   </select>
               </div>
               <span class="device-area__rotate-icon" (click)="rotateScreen(device.value)" [hidden]="!sh.showhide.show"></span>
-              <div class="col-md-4 pull-right text-right">
+              <div class="col-md-4 pull-right text-right" [hidden]="sh.showhide.show">
                 <button class="btn btn-primary">Save</button>
                 <button class="btn btn-default">Preview</button>
               </div>
             </div>
           </div>
           <!--top bar-->
-
-          <span href="#" class="device-area__full-screen-button glyphicon glyphicon-fullscreen" (click)=fullScreen()></span>
+          <span [class.glyphicon-resize-small]="sh.showhide.show" href="#" class="device-area__full-screen-button glyphicon glyphicon-resize-full" (click)=fullScreen()></span>
+          
           <div class="device-area__all device-area__{{device.value}} device-area__{{device.value}}--{{rotate}}" dnd-droppable (onDropSuccess)="transferDataSuccess($event)">
-        </div>
+            <div [hidden]="!receivedData.length > 0" *ngFor="let data of receivedData">
+
+                <div class="form-group form-comp {{uiPosition.value}}" *ngIf="data.dragData.type == 'button'">
+                  <label>{{label.value}}</label>
+                  <input class="form-control btn btn-primary" value="{{text.value}}" (click)="showPanel(data.dragData)" />
+                </div>
+
+                <div class="form-group form-comp {{uiPosition2.value}}" *ngIf="data.dragData.type == 'text'">
+                  <label>{{label2.value}}</label>
+                  <input class="form-control input" type="{{data.dragData.type}}" (click)="showPanel(data.dragData)" />
+                </div>
+              </div>
+          </div>
       </div>
     </div>
   </split-area>

@@ -19,10 +19,10 @@
     </div>
   </div>
 
-  <tree-root #tree [nodes]="nodes">
+<tree-root #tree [nodes]="nodes">
     <ng-template #treeNodeTemplate let-node let-index="index">
       <span>{{ node.data.name }} </span>
-      <button class="leftpane__tree-btn"  *ngIf="node.data.button == true">ON</button>
+      <button class="leftpane__tree-btn" #nodeButton (click)="onOff(nodeButton)" *ngIf="node.data.button == true">ON</button>
     </ng-template>
   </tree-root>
 </div>

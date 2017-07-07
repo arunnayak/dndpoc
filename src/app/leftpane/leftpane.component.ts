@@ -2,6 +2,11 @@ import { Component} from '@angular/core';
 import { TreeComponent } from 'angular-tree-component';
 import { Node } from './node';
 
+import { JsonSchemaFormModule } from 'angular2-json-schema-form';
+
+
+declare var jQuery:any;
+
 @Component({
   selector: 'app-leftpane',
   templateUrl: './leftpane.component.html',
@@ -26,9 +31,16 @@ export class LeftpaneComponent  {
 
   newNode: Node = new Node();
 
+  onOff(id){
+    jQuery(id).toggleClass('enable');
+  }
   addNode(newNode) {
     // Just add node and replace nodes variable:
     this.nodes = [this.nodes, newNode];
   }
 
+  
+  searchNode(val){
+    
+  }
 }
