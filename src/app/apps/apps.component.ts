@@ -12,23 +12,16 @@ declare var jQuery:any;
 })
 
 export class AppsComponent {
- 
-  public showNav : boolean = true;
-
+  
   newTodo: Todo = new Todo();
   items: FirebaseListObservable<any[]>;
 
   constructor(afDb: AngularFireDatabase) {
-    this.items = afDb.list('/items', {
-        //equalTo: search,
-        //orderByKey: true
-    });
-    //this.showNav = true;
-    //console.log(this.showNav);
-    console.log(this.items);
+    this.items = afDb.list('/items');
   } 
   
   addTodo(name: string, description: string, date: string, icon: boolean){
+    
     //close modal window
     jQuery(".modal button.close").click();
 
@@ -36,14 +29,5 @@ export class AppsComponent {
   }
 
   removeTodo(key: string) {
-    return this.items.remove(key).then(_ => console.log('item deleted!'));
-  }
-
-    // filteredData = this.items;
-    // search(val: any) {
-    //   if (!val) this.filteredData = this.items;
-
-    //   //this.filteredData = this.items.filter(d => d.indexOf(val) >= 0);
-    // }
-
+    return this.items.remove(key).then(_ => console.log('item deleted!'));}
 }

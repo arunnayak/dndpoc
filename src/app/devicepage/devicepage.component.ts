@@ -7,17 +7,18 @@ import { TabsComponent } from '../tabs/tabs.component';
 import { HeaderComponent } from '../header/header.component';
 import { LeftpaneComponent } from '../leftpane/leftpane.component';
 import { ShowHideSharedService } from '../../app/show-hide-shared.service';
+import { SortableContainer } from 'ng2-dnd';
 
 declare var jQuery: any;
-var x;
-var y;
 
 @Component({
     selector: 'app-devicepage',
     templateUrl: './devicepage.component.html',
     styleUrls: ['./devicepage.component.scss'],
-    providers:[ShowHideSharedService]
+    providers:[ShowHideSharedService, SortableContainer]
 })
+
+
 
 export class DevicepageComponent {
 
@@ -29,7 +30,8 @@ export class DevicepageComponent {
     public styles: string = '';
     public text: string = '';
 
-    constructor(private sh: ShowHideSharedService) {
+    
+    constructor(public sh: ShowHideSharedService) {
 
         this.label = 'label';
         this.fieldType = 'Field type';
@@ -38,54 +40,61 @@ export class DevicepageComponent {
         this.uiPosition = 'left'
         this.styles = 'styles'
         this.text = 'text'
+        
 
     }
 
     receivedData: Array<any> = [];
+
+
+    private x: number;
+    private y: number;
 
     transferDataSuccess($event: any) {
         this.receivedData.push($event);
         //let stringify = JSON.stringify(this.receivedData);
         //console.log(this.receivedData[0].dragData.type == 'button');
         if (this.receivedData[0].dragData.type == 'button') {
-            x = 0;
-            y = 1;
+            this.x = 0;
+            this.y = 1;
         } else {
-            x = 1;
-            y = 0;
+            this.x = 1;
+            this.y = 0;
         }
     }
 
+
+
     addLabelvalue(value: any) {
-        this.receivedData[x].dragData.form.label = value;
-        console.log(this.receivedData[x].dragData.form.label);
+        this.receivedData[this.x].dragData.form.label = value;
+        console.log(this.receivedData[this.x].dragData.form.label);
     }
 
     addTextvalue(value: any, id) {
-        this.receivedData[x].dragData.form.text = value;
-        jQuery(id).val(this.receivedData[x].dragData.form.text);
-        console.log(this.receivedData[x].dragData.form.text);
+        this.receivedData[this.x].dragData.form.text = value;
+        jQuery(id).val(this.receivedData[this.x].dragData.form.text);
+        console.log(this.receivedData[this.x].dragData.form.text);
     }
 
     addFieldTypevalue(value: any) {
-        this.receivedData[x].dragData.form.fieldType = value;
+        this.receivedData[this.x].dragData.form.fieldType = value;
         console.log(value);
     }
 
     addTableNamevalue(value: any) {
-        this.receivedData[x].dragData.form.tableName = value;
+        this.receivedData[this.x].dragData.form.tableName = value;
     }
 
     addFieldNamevalue(value: any) {
-        this.receivedData[x].dragData.form.fieldName = value;
+        this.receivedData[this.x].dragData.form.fieldName = value;
     }
 
     addUIPositionvalue(value: any) {
-        this.receivedData[x].dragData.form.uiPosition = value;
+        this.receivedData[this.x].dragData.form.uiPosition = value;
     }
 
     addStylesvalue(value: any) {
-        this.receivedData[x].dragData.form.styles = value;
+        this.receivedData[this.x].dragData.form.styles = value;
 
         //todo
         jQuery('.btn.form-control').attr("style", value);
@@ -94,27 +103,27 @@ export class DevicepageComponent {
     /*** text values ***/
 
     addLabel2value(value: any) {
-        this.receivedData[y].dragData.form.label = value;
+        this.receivedData[this.y].dragData.form.label = value;
     }
 
     addFieldType2value(value: any) {
-        this.receivedData[y].dragData.form.fieldType = value;
+        this.receivedData[this.y].dragData.form.fieldType = value;
     }
 
     addTableName2value(value: any) {
-        this.receivedData[y].dragData.form.tableName = value;
+        this.receivedData[this.y].dragData.form.tableName = value;
     }
 
     addFieldName2value(value: any) {
-        this.receivedData[y].dragData.form.fieldName = value;
+        this.receivedData[this.y].dragData.form.fieldName = value;
     }
 
     addUIPosition2value(value: any) {
-        this.receivedData[y].dragData.form.uiPosition = value;
+        this.receivedData[this.y].dragData.form.uiPosition = value;
     }
 
     addStyles2value(value: any) {
-        this.receivedData[y].dragData.form.styles = value;
+        this.receivedData[this.y].dragData.form.styles = value;
 
         jQuery('.input.form-control').attr("style", value);
 
@@ -139,7 +148,6 @@ export class DevicepageComponent {
         }
     }
 
-
     //New functions
     public isFullScreenActive: boolean = false;
     public rotate: boolean = false;
@@ -149,13 +157,11 @@ export class DevicepageComponent {
         this.sh.hide();
     }
 
-    changeDevice(val){
-        console.log(val); 
+    rotateScreen(val){
+        this.rotate=!this.rotate
     }
 
-    rotateScreen(val){
-
-        this.rotate=!this.rotate
-
+    changeDevice(val){
+        console.log(val);
     }
 }

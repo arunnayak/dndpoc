@@ -47,6 +47,11 @@
     &__iphone--true{
          -webkit-transform: rotate(90deg);
          transform: rotate(90deg);
+
+         .device-area__dragged-items{
+             -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+         }
     }
 
     &__ipad{
@@ -111,68 +116,10 @@
             font-size: 22px;
         }
     }
+
+    &__dragged-items{
+        margin: 65px 30px 0 30px;
+        height: 365px;
+        overflow-y: scroll;
+    }
 }
-
-// .iphone-5, .iphone-6, .iphone-7{
-//     margin: 0 auto;
-//     overflow: auto;
-//     background: #fff;
-//     border-radius: 10px;
-// }
-// .iphone-6, .iphone-7{
-//     width: 414px;
-//     height: 628px;
-// }
-
-// .iphone-5{
-//     background: url("../../assets/img/iphone-5-portrait.png") no-repeat;
-//     width: 367px;
-//     height: 850px;
-// }
-// .iphone-6{
-//     background: url("../../assets/img/iphone-6-portrait.png") no-repeat;
-//     width: 423px;
-//     height: 1000px;
-// }
-// .iphone-7{
-//     background: url("../../assets/img/android-nexus-4-portrait.png") no-repeat;
-//     width: 428px;
-//     height: 915px;
-//     padding: 90px 22px 228px 23px !important;
-// }
-// .phone-area{
-//     padding: 124px 22px 50px 23px;
-    
-// }
-// .elements{
-//     padding: 10px;
-// }
-// .iphone-5 .elements{
-//     height: 504px;
-//     overflow-x: auto;
-// }
-// .export-button{
-//     position: fixed;
-//     top: 2px;
-//     right: 20px;
-// }
-// .panel{
-//     margin-bottom: 10px;
-// }
-// .panel:hover{
-//     background: #efefef;
-// }
-// .button-panel, .text-panel{display: none;}
-
-// .form-comp.left{
-//     float: left;
-//     width: 50%;
-// }
-// .form-comp.right{
-//     float: right;
-//     width: 50%;
-// }
-
-// .panel-body{
-//     padding: 5px;
-// }

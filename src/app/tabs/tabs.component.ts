@@ -1,12 +1,45 @@
-import { Component } from '@angular/core';
-import { DndModule } from 'ng2-dnd';
+import { Component, Injectable, Input } from '@angular/core';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import { SortableContainer } from 'ng2-dnd';
 
+@Injectable()
 @Component({
   selector: 'app-tabs',
   templateUrl: './tabs.component.html',
-  styleUrls: ['./tabs.component.scss']
+  styleUrls: ['./tabs.component.scss'],
+  providers:[SortableContainer]
 })
+
 export class TabsComponent {
+
+    fieldTypes: Observable<Response>; 
+
+    constructor(private http: Http) {
+         this.getJSON()
+             .subscribe(
+                data => this.fieldTypes=data, 
+                //data => this.processFieldtypes = data,
+                error => console.log(error)
+            );
+    }
+
+    public getJSON(): Observable<any> {
+         return this.http.get("../../assets/img/field-types/fieldTypes.json")
+                .map((res:any) => res.json())
+                .do(data => {this.fieldTypes = data, console.log(this.fieldTypes)})
+                .catch(this.handleError);
+     }
+
+    private handleError (error: Response) {
+        // in a real world app, we may send the server to some remote logging infrastructure
+        // instead of just logging it to the console
+        console.log(error);
+        return Observable.throw('Internal server error');
+    }
+    
 
   exampleJsonObject = {
       "first_name": "Jane", "last_name": "Doe", "age": 25, "is_company": false,
@@ -19,26 +52,6 @@ export class TabsComponent {
           { "number": "702-987-6543", "type": "work" }
       ], "notes": ""
     };
-
-    "items" = [
-        {
-            "type": "button",
-            "name": "button_name",
-            "id": 0,
-            "class": "button-class",
-            "imgUrl": "../../assets/img/btn-2.jpg",
-            "form": {}
-        },
-        {
-            "type": "text",
-            "name": "text_name",
-            "id": 1,
-            "class": "text-class",
-            "description": "description2",
-            "imgUrl": "../../assets/img/text-2.jpg",
-            "form": {}
-        }
-    ]
 
 
 }

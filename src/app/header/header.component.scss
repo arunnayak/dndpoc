@@ -5,7 +5,7 @@
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 10;
+    z-index: 11;
     // > mixins 
         -webkit-box-shadow: 0 2px 10px 0px #ccc;
         -moz-box-shadow: 0 2px 10px 0px #ccc;
@@ -25,9 +25,9 @@
         width: 58%;
     }
     &__link{
-        font-size: 30px;
+        font-size: 22px;
         color: #8c8c8c;
-        padding: 9px 20px 10px 20px;
+        padding: 12px 20px 15px 20px;
         float: left;
         // > mixins
         border-right: solid 1px #ddd;

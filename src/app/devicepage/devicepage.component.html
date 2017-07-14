@@ -30,18 +30,15 @@
           <span [class.glyphicon-resize-small]="sh.showhide.show" href="#" class="device-area__full-screen-button glyphicon glyphicon-resize-full" (click)=fullScreen()></span>
           
           <div class="device-area__all device-area__{{device.value}} device-area__{{device.value}}--{{rotate}}" dnd-droppable (onDropSuccess)="transferDataSuccess($event)">
-            <div [hidden]="!receivedData.length > 0" *ngFor="let data of receivedData">
-
-                <div class="form-group form-comp {{uiPosition.value}}" *ngIf="data.dragData.type == 'button'">
-                  <label>{{label.value}}</label>
-                  <input class="form-control btn btn-primary" value="{{text.value}}" (click)="showPanel(data.dragData)" />
-                </div>
-
-                <div class="form-group form-comp {{uiPosition2.value}}" *ngIf="data.dragData.type == 'text'">
-                  <label>{{label2.value}}</label>
-                  <input class="form-control input" type="{{data.dragData.type}}" (click)="showPanel(data.dragData)" />
+            <div class="device-area__dragged-items">
+                <div [hidden]="!receivedData.length > 0" *ngFor="let data of receivedData; let x = index">
+                <div class="form-group form-comp" dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation" [dragData]="data" [dragData]="source" >
+                    <label>{{data.dragData.label}}</label>
+                    <div [innerHtml]="data.dragData.html | sanitizeHtml"></div>
+                    <!-- <input class="form-control" type="{{data.dragData.type}}" value="{{data.dragData.value}}" (click)="showPanel(data.dragData)" />   -->
                 </div>
               </div>
+            </div>
           </div>
       </div>
     </div>

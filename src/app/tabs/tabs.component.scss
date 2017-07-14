@@ -1,11 +1,14 @@
 .tabs{
-    padding: 7px 0 0;
-    background: #e3e3e3;
-    height: 40px;
+    position: relative;
 
     &__container{
-        padding: 0;
+        padding: 7px 0 0;
         margin: 0;
+        position: fixed;
+        width: 100%;
+        z-index: 10;
+        background: #e3e3e3;
+        height: 40px;
     }
     &__item{
         display: inline-block;
@@ -32,7 +35,36 @@
     }
     
     &__body{
-        padding: 10px;
+        padding: 5px 0 5px 5px;
+        position: relative;
+        top: 40px;
     }
 
+    &__content-items{
+        padding: 0;
+    }
+    &__content-item{
+        display: inline-block;
+        width: calc( 33.333% - 5px);
+        margin: 0 5px 15px 0;
+        border: solid 2px #EBEFF2;
+        transition: border 0.4s ease;
+        vertical-align: top;
+
+        &:hover, &:focus{
+            border: solid 2px #C9DEDF;
+        }
+    }
+    &__content-item-img{
+        max-width: 100%;
+    }
+    &__content-item-name{
+        display: block;
+        padding: 5px;
+        font-size: 11px;
+        color: #255281;
+        text-align: left;
+        text-transform: capitalize;
+        font-weight: 400;
+    }
 }

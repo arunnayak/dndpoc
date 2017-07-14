@@ -21,6 +21,7 @@ import { DevicepageComponent } from './devicepage/devicepage.component';
 import { firebaseConfig } from './firebaseConfig';
 import { LeftpaneComponent } from './leftpane/leftpane.component';
 import { TabsComponent } from './tabs/tabs.component';
+import { SanitizeHtmlPipe } from './sanitize-html.pipe';
 
 
 const appRoutes: Routes  = [
@@ -38,6 +39,7 @@ const appRoutes: Routes  = [
     DevicepageComponent,
     LeftpaneComponent,
     TabsComponent,
+    SanitizeHtmlPipe,
   ],
   imports: [
     BrowserModule,
