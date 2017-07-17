@@ -5,6 +5,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { SortableContainer } from 'ng2-dnd';
 
+declare var jQuery: any;
+
 @Injectable()
 @Component({
   selector: 'app-tabs',
@@ -40,6 +42,9 @@ export class TabsComponent {
         return Observable.throw('Internal server error');
     }
     
+    ShowHidePanel(index){
+        jQuery('.form-'+index).hide();
+    }
 
   exampleJsonObject = {
       "first_name": "Jane", "last_name": "Doe", "age": 25, "is_company": false,

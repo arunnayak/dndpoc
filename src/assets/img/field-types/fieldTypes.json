@@ -9,7 +9,8 @@
 		"imgUrl": "../../assets/img/field-types/01-Text-Input.png",
 		"value":"Enter Value",
 		"html":"<input type=\"text\" class=\"form-control\" />",
-		"form": {}
+		"form": {
+		}
 	},
 	{
 		"type": "number",

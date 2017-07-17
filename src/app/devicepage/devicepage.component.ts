@@ -22,6 +22,7 @@ declare var jQuery: any;
 
 export class DevicepageComponent {
 
+
     public label: string = '';
     public fieldType: string = '';
     public tableName: string = '';
@@ -163,5 +164,9 @@ export class DevicepageComponent {
 
     changeDevice(val){
         console.log(val);
+    }
+
+    ShowProperties(index){
+        jQuery('.form-'+index).toggle();
     }
 }

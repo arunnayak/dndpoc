@@ -34,7 +34,9 @@
                 <div [hidden]="!receivedData.length > 0" *ngFor="let data of receivedData; let x = index">
                 <div class="form-group form-comp" dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation" [dragData]="data" [dragData]="source" >
                     <label>{{data.dragData.label}}</label>
-                    <div [innerHtml]="data.dragData.html | sanitizeHtml"></div>
+                    <div [innerHtml]="data.dragData.html | sanitizeHtml" (click)="ShowProperties(x)"></div>
+                    <div [innerHtml]="data.dragData.form.template">
+                    </div>
                     <!-- <input class="form-control" type="{{data.dragData.type}}" value="{{data.dragData.value}}" (click)="showPanel(data.dragData)" />   -->
                 </div>
               </div>

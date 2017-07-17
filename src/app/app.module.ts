@@ -39,7 +39,7 @@ const appRoutes: Routes  = [
     DevicepageComponent,
     LeftpaneComponent,
     TabsComponent,
-    SanitizeHtmlPipe,
+    SanitizeHtmlPipe
   ],
   imports: [
     BrowserModule,
