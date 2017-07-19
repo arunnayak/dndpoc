@@ -55,13 +55,15 @@ export class DevicepageComponent {
         this.receivedData.push($event);
         //let stringify = JSON.stringify(this.receivedData);
         //console.log(this.receivedData[0].dragData.type == 'button');
-        if (this.receivedData[0].dragData.type == 'button') {
-            this.x = 0;
-            this.y = 1;
-        } else {
-            this.x = 1;
-            this.y = 0;
-        }
+        // if (this.receivedData[0].dragData.type == 'button') {
+        //     this.x = 0;
+        //     this.y = 1;
+        // } else {
+        //     this.x = 1;
+        //     this.y = 0;
+        // }
+
+        console.log(this.receivedData);
     }
 
 
@@ -166,7 +168,25 @@ export class DevicepageComponent {
         console.log(val);
     }
 
-    ShowProperties(index){
-        jQuery('.form-'+index).toggle();
+    ShowProperties(formContainer, elm){
+        jQuery(".tabs__properties").hide();
+        jQuery('.device-area__dragged-items div').removeClass('device-area__highlight');
+
+        jQuery("."+formContainer).toggle();
+        jQuery(elm).toggleClass('device-area__highlight');
+        
+    }
+
+    textInputSchema = {
+        "properties": {
+            "label": {
+                "type": "string",
+                "description": "label"
+            },
+            "styles": {
+                "type": "string",
+                "description": "styles"
+            }
+        }
     }
 }

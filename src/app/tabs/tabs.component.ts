@@ -31,7 +31,8 @@ export class TabsComponent {
     public getJSON(): Observable<any> {
          return this.http.get("../../assets/img/field-types/fieldTypes.json")
                 .map((res:any) => res.json())
-                .do(data => {this.fieldTypes = data, console.log(this.fieldTypes)})
+                //.do(data => {this.fieldTypes = data, console.log(this.fieldTypes)})
+                .do(data => this.fieldTypes = data)
                 .catch(this.handleError);
      }
 
@@ -42,21 +43,79 @@ export class TabsComponent {
         return Observable.throw('Internal server error');
     }
     
-    ShowHidePanel(index){
-        jQuery('.form-'+index).hide();
+    ShowHidePanel(formContainer){
+        jQuery('.'+formContainer).hide();
+        jQuery('.device-area__dragged-items div').removeClass('device-area__highlight');
+    }
+   
+    textInput: Array<any> = [{"id": 1, "type": "text", "name": "textName", "schema": "textInputSchema", "properties": [] }];
+    selectInput: Array<any> = [{"id": 2, "type": 'select', "name": "selectName", "schema": "selectInputSchema", "properties": {}}];
+    
+   // textInput: Object = {id: 1, "type": 'text', name: "textName", schema: "textInputSchema", properties: {}};
+    //selectInput: Object = {id: 2, type: 'select', name: "selectName", schema: "selectInputSchema", properties: {}};
+    testInput: Object = {id: 4, type: 'text', name: "textname", schema: "testSchema", properties: {}};
+    
+    properties: Array<any> = [];
+    createJsonObj: Array<any> = [];
+    showJson(val, val2){
+
+    this.properties.push(val)
+    this.selectInput.push(val2);
+
+    this.createJsonObj.push(this.textInput, this.selectInput);
+    let formatToJson = JSON.stringify(this.createJsonObj);
+    console.log(formatToJson);
     }
 
-  exampleJsonObject = {
-      "first_name": "Jane", "last_name": "Doe", "age": 25, "is_company": false,
-      "address": {
-          "street_1": "123 Main St.", "street_2": null,
-          "city": "Las Vegas", "state": "NV", "zip_code": "89123"
-      },
-      "phone_numbers": [
-          { "number": "702-123-4567", "type": "cell" },
-          { "number": "702-987-6543", "type": "work" }
-      ], "notes": ""
-    };
+    textInputSchema = {
+        "properties": {
+            "label": {
+                "type": "string",
+                "description": "label"
+            },
+            "styles": {
+                "type": "string",
+                "description": "styles"
+            }
+        }
+    }
 
+    selectInputSchema = {
+        "properties": {
+            "label": {
+                "type": "string",
+                "description": "label"
+            },
+            "styles": {
+                "type": "string",
+                "description": "styles"
+            },
+            "select": {
+                "type": "string",
+                "description": "select",
+                "widget": "select",
+                "oneOf": [{
+                    "description": "Option 1", "enum": ["option1"]
+                    }, {
+                    "description": "Option 2", "enum": ["option2"]
+                    }, {
+                    "description": "Option 3", "enum": ["option3"]
+                    }],
+                "default": "option1"
+            }
+        }
+    }
 
+    testSchema = {
+        "properties": {
+            "label": {
+                "type": "string",
+                "description": "label"
+            },
+            "styles": {
+                "type": "string",
+                "description": "styles"
+            }
+        }
+    }
 }

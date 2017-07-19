@@ -32,11 +32,19 @@
           <div class="device-area__all device-area__{{device.value}} device-area__{{device.value}}--{{rotate}}" dnd-droppable (onDropSuccess)="transferDataSuccess($event)">
             <div class="device-area__dragged-items">
                 <div [hidden]="!receivedData.length > 0" *ngFor="let data of receivedData; let x = index">
-                <div class="form-group form-comp" dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation" [dragData]="data" [dragData]="source" >
-                    <label>{{data.dragData.label}}</label>
-                    <div [innerHtml]="data.dragData.html | sanitizeHtml" (click)="ShowProperties(x)"></div>
-                    <div [innerHtml]="data.dragData.form.template">
-                    </div>
+                <div class="form-group form-comp" #element (click)="ShowProperties(data.dragData[0].schema, element)" dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation" [dragData]="data" [dragData]="source" >
+                  <!-- <label>{{data.dragData.properties.label}}</label> -->
+                  {{data.dragData[0].type}}
+
+                  <input type="text" class="form-control" name="data.dragData[0].name" *ngIf="data.dragData[0].type=='text'" />
+                  <!-- <input type="number" class="form-control" name="data.dragData[0].name" *ngIf="data.dragData[0].type=='number'" /> -->
+                  <select name="data.dragData[0].name" class="form-control" *ngIf="data.dragData[0].type=='select'"></select>
+                  
+                  {{value | json}}
+
+                  <!-- {{data.dragData | json}} -->
+                    <!-- <label>{{data.dragData.name}}</label>
+                    <div [innerHtml]="data.dragData.html | sanitizeHtml"></div> -->
                     <!-- <input class="form-control" type="{{data.dragData.type}}" value="{{data.dragData.value}}" (click)="showPanel(data.dragData)" />   -->
                 </div>
               </div>

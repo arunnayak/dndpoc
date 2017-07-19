@@ -23,6 +23,15 @@ body{
     clear: both;
 }
 
+/****** form classes *****/
+
+    .formHelp{
+        text-transform: capitalize;
+        font-size: 12px;
+        font-weight: 400;
+        color: #888;
+    }
+
 // .leftpane, .rightpane{
 //     height: 75vw;
 //     overflow-x: auto;

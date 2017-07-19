@@ -9,9 +9,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 //import { AlertModule } from 'ngx-bootstrap'; //uncomment this line when we need an alert module
 //import { DragulaModule } from 'ng2-dragula'; //============ third party module ==============//
 import { DndModule } from 'ng2-dnd';
-import { JsonSchemaFormModule } from 'angular2-json-schema-form';
 import { AngularSplitModule } from 'angular-split';
 import { TreeModule } from 'angular-tree-component';
+import { SchemaFormModule, WidgetRegistry, DefaultWidgetRegistry } from "angular2-schema-form";
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -49,12 +49,12 @@ const appRoutes: Routes  = [
     AngularFireModule.initializeApp(firebaseConfig),
     DndModule.forRoot(),
     AngularFireDatabaseModule,
-    JsonSchemaFormModule,
     AngularSplitModule,
-    TreeModule
+    TreeModule,
+    SchemaFormModule
     //AlertModule.forRoot() //uncomment this line when we need an alert module
   ],
-  providers: [],
+  providers: [{provide: WidgetRegistry, useClass: DefaultWidgetRegistry}],
   bootstrap: [AppComponent]
 })
 

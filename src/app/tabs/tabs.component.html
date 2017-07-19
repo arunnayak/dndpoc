@@ -15,13 +15,245 @@
     <div class="tab-pane fade" id="tab4default">Views content here</div>
     <div class="tab-pane fade in active" id="tab5default">
       <ul class="tabs__content-items">
-        <li class="tabs__content-item" *ngFor="let fieldType of fieldTypes; let i = index"  dnd-draggable [dragData]="fieldType">
-          <img class="tabs__content-item-img" *ngIf="fieldType.imgUrl!=''" src="{{fieldType.imgUrl}}" />
-          <span class="tabs__content-item-name">{{fieldType.name}}</span>
-          <div class="tabs__properties form-{{i}}">
-            <span class="tabs__close-icon glyphicon glyphicon-remove-circle" (click)="ShowHidePanel(i)"></span>
-            Properties here
+        <button (click)="showJson(value, value2)">Json</button>
+        <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/01-Text-Input.png" dnd-draggable [dragData]="textInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Text Input</span>
+            
+          <div class="tabs__properties {{textInput[0].schema}}">
+            <span class="tabs__prop-head">Properties</span>
+            <span class="tabs__close-icon glyphicon glyphicon-remove-circle" (click)="ShowHidePanel(textInput[0].schema)"></span>
+            <div class="tabs__form">
+              <sf-form [schema]="textInputSchema" (onChange)="value=$event.value"></sf-form>
+              {{value | json}}
+            </div>
           </div>
+        </li>
+
+        <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/05-Drop-Down.png" dnd-draggable [dragData]="selectInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Select</span>
+          <div class="tabs__properties {{selectInput[0].schema}}">
+            <span class="tabs__prop-head">Properties</span>
+            
+            <span class="tabs__close-icon glyphicon glyphicon-remove-circle" (click)="ShowHidePanel(selectInput[0].schema)"></span>
+            <div class="tabs__form">
+                <sf-form [schema]="selectInputSchema" (onChange)="value2=$event.value"></sf-form>
+                {{value2 | json}}  
+            </div>
+          </div>
+        </li>
+
+
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/02-Numeric-Input.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Numeric Inpput</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/03-Date.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Date</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/04-Switch.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Switch</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/06-Input-Drop-Down.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Input drop down</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/07-Multi-Value-Drop-Down.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Multi Value Drop Down</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/09-Attachments.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Attachments</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/08-Slider.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Slider</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/05-Drop-Down.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Select</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/10-Long-Input.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Long Input</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/11-Input-or-Scan.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Input or Scan</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/12-Scan.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Scan</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/13-Check-Box.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Check Box</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/14-Signature.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Signature</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/15-Display-interactive.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Display interactive</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/16-Display.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Display</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/05-Drop-Down.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Select</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/17-Drop-Down-Range.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Drop Down Range</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/18-Date-Range.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Date Range</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/19-Text-Range.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Text Range</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/20-Numeric-Range.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Numeric Range</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/21-Input-Drop-Down-Range.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Input Drop Down Range</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/22-Scan-Input-Drop-Down.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Scan Input Drop Down</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/23-Long-Text-Display.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Long Text Display</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/24-Time-Select.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Time Select</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/25-Time-Display.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Time Display</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/26-Numeric-Input-Drop-Down.png" dnd-draggable [dragData]="selectInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Numeric Input Drop Down</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/27-Geo-Location-Address-Display.png" dnd-draggable [dragData]="selectInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Geo Location Address Display</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/28-Geo-Location-Coordinates-Display.png" dnd-draggable [dragData]="selectInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Geo Location Coordinates Display</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/29-Geo-Location-Address-Input.png" dnd-draggable [dragData]="selectInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Geo Location Address Input</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/30-Geo-Location-Coordinate-Input.png" dnd-draggable [dragData]="selectInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Geo Location Coordinate Input</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/31-Input-Drop-Down-Multi-Value.png" dnd-draggable [dragData]="selectInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Input Drop Down Multi Value</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/32-Numeric-Input-Drop-Down-Multi-Value.png" dnd-draggable [dragData]="selectInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Numeric Input Drop Down Multi Value</span>
+          
+        </li>
+
+         <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/33-Numeric-Field-Multi-Value.png" dnd-draggable [dragData]="selectInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Numeric Field Multi Value</span>
+          
+        </li>
+
+        <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/34-Image-Capture.png" dnd-draggable [dragData]="selectInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Image Capture</span>
+          
+        </li>
+
+        <li class="tabs__content-item">
+          <img src="../../assets/img/field-types/35-Video-Recording.png" dnd-draggable [dragData]="selectInput" class="tabs__content-item-img" alt="Text Input" />
+          <span class="tabs__content-item-name">Video Recording</span>
+          
         </li>
       </ul>
       

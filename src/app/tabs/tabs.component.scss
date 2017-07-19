@@ -46,17 +46,23 @@
     &__content-item{
         display: inline-block;
         width: calc( 33.333% - 5px);
-        margin: 0 5px 15px 0;
+        margin: 0 2px 15px 0;
         border: solid 2px #EBEFF2;
-        transition: border 0.4s ease;
+        transition: all 0.1s ease-in;
         vertical-align: top;
+        cursor: move;
 
         &:hover, &:focus{
             border: solid 2px #C9DEDF;
         }
+
+        &:active{
+            padding: 2px;
+        }
     }
     &__content-item-img{
         max-width: 100%;
+        cursor: move !important;
     }
     &__content-item-name{
         display: block;
@@ -89,4 +95,16 @@
             color: #999;
         }
     }
+
+    &__prop-head{
+        text-transform: capitalize;
+        font-size: 13px;
+        font-weight: 400;
+        color: #000;
+    }
+    &__form{
+        padding: 10px 0 0 0;
+    }
+
+    
 }

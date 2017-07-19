@@ -10,6 +10,21 @@
 		"value":"Enter Value",
 		"html":"<input type=\"text\" class=\"form-control\" />",
 		"form": {
+			
+		}
+	},
+	{
+		"type": "select",
+		"name": "select box",
+		"label": "Drop Down",
+		"id": 4,
+		"class": "select-class",
+		"description": "description",
+		"imgUrl": "../../assets/img/field-types/05-Drop-Down.png",
+		"value":"",
+		"html":"<select class=\"form-control\"><option>Select</option><option>Something</option><option>something 2</option></select>",
+		"form": {
+			
 		}
 	},
 	{
@@ -48,18 +63,7 @@
 		"html": "<input type='checkbox' class='form-control' />",
 		"form": {}
 	},
-	{
-		"type": "select",
-		"name": "select box",
-		"label": "Drop Down",
-		"id": 4,
-		"class": "select-class",
-		"description": "description",
-		"imgUrl": "../../assets/img/field-types/05-Drop-Down.png",
-		"value":"",
-		"html":"<select class=\"form-control\"><option>Select</option><option>Something</option><option>something 2</option></select>",
-		"form": {}
-	},
+	
 	{
 		"type": "select",
 		"name": "Image Capture",
