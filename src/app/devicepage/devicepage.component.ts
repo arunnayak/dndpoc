@@ -82,13 +82,9 @@ export class DevicepageComponent {
         console.log(JSON.stringify(this.receivedData));
     }
 
-    ShowHidePanel(formContainer, btn){
-        jQuery('.'+formContainer).slideUp('slow');
+    ShowHidePanel(formContainer){
+        jQuery('.'+formContainer).slideUp('800');
         jQuery('.device-area__dragged-items div').removeClass('device-area__highlight');
-
-        /*** Hack to update the json ***/
-        jQuery('.'+btn).click();
-        
     }
 
     textComponent: Array<any> = [{

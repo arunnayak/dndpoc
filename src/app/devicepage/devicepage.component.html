@@ -42,7 +42,7 @@
                 </div>
 
                 <div *ngIf="data.dragData[0].type=='select'">
-                  <label>{{title.value}}</label>
+                  <label>{{comp2Title.value}}</label>
                   <select class="form-control"></select>
                 </div>
               </div>
@@ -84,23 +84,22 @@
 
 
               <div class="tabs__properties {{textComponent[0].schema}}">
-                <!-- <span class="tabs__close-icon glyphicon glyphicon-remove-circle" (click)="ShowHidePanel(textComponent[0].schema, 'buttonText')"></span> -->
 
-                <form #component1Form="ngForm" (ngSubmit)="addTextProperties(component1Form)">
+                  <form #component1Form="ngForm" (ngSubmit)="addTextProperties(component1Form)">
 
                   <div class="form-group">
                     <label class="tabs__form-label" for="title">Title</label>
-                     <input type="text" value="Title" class="form-control" name="title" #comp1Title /> 
+                     <input type="text" value="Text Field" class="form-control" name="title" #comp1Title [ngModel]="comp1Title.value" /> 
                   </div>
 
                   <div class="form-group">
                     <label class="tabs__form-label" for="fieldName">Field Name</label>
-                    <textarea class="form-control" name="fieldName" #comp1FieldName ngModel></textarea>
+                    <textarea class="form-control" name="fieldName" #comp1FieldName [ngModel]="comp1FieldName.value"></textarea>
                   </div>
 
                    <div class="form-group">
                     <label class="tabs__form-label" for="dataType">Data Type</label>
-                    <select class="form-control" name="dataType" ngModel #comp1DataType>
+                    <select class="form-control" name="dataType" [ngModel]="comp1DataType.value" #comp1DataType>
                       <option selected>text</option>
                       <option>Number</option>
                     </select>
@@ -108,26 +107,27 @@
 
                   <div class="form-group">
                     <label class="tabs__form-label" for="placeholder">Place holder</label>
-                    <input type="text" value="Placeholder" class="form-control" name="placeholder" #comp1Placeholder ngModel>
+                    <input type="text" value="Placeholder" class="form-control" name="placeholder" #comp1Placeholder [ngModel]="comp1Placeholder.value">
                   </div>
 
                   <div class="form-group">
                     <label class="tabs__form-label" for="instructionText">Tnstruction Text</label>
-                    <input type="text" class="form-control" name="instructionText" #comp1InstructionText ngModel>
+                    <input type="text" class="form-control" name="instructionText" #comp1InstructionText [ngModel]="comp1InstructionText.value">
                   </div>
 
                   
                   <div class="form-group">
-                    <input type="checkbox" name="required" #comp1Required ngModel>
+                    <input type="checkbox" name="required" #comp1Required [ngModel]="false">
                     <label class="tabs__form-label" for="required">Required</label>
                   </div>
 
                   <div class="form-group">
-                    <input type="checkbox" name="speechToText" #comp1SpeechToText ngModel>
+                    <input type="checkbox" name="speechToText" checked="" #comp1SpeechToText [ngModel]="false">
                     <label class="tabs__form-label" for="required">Speech to text</label>
                   </div>
 
                   <button class="btn btn-primary" type="submit" (click)="ShowHidePanel(textComponent[0].schema)">Done</button>
+                  <button type="button" class="btn btn-default" (click)="ShowHidePanel(textComponent[0].schema)">Close</button>                  
                 </form>
               </div>
             </li>
@@ -145,61 +145,63 @@
 
                   <div class="form-group">
                     <label class="tabs__form-label" for="title">Title</label>
-                    <input type="text" class="form-control" name="title" #title ngModel>
+                    <input type="text" value="Dropdown name" class="form-control" name="title" #comp2Title [ngModel]="comp2Title.value">
                   </div>
 
                   <div class="form-group">
                     <label class="tabs__form-label" for="fieldName">Field Name</label>
-                    <textarea class="form-control" name="fieldName" #fieldName ngModel></textarea>
+                    <textarea class="form-control" name="fieldName" #comp2FieldName [ngModel]="comp2FieldName.value"></textarea>
                   </div>
 
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label class="tabs__form-label" for="placeholder">Place holder</label>
-                    <input type="text" class="form-control" name="placeholder" #placeholder ngModel>
-                  </div>
+                    <input type="text" class="form-control" name="placeholder" #comp2Placeholder [ngModel]="comp2Placeholder.value">
+                  </div> -->
                   
                   <div class="form-group">
-                    <label class="tabs__form-label"  for="instructionText">Tnstruction Text</label>
-                    <input type="text" class="form-control" name="instructionText" #instructionText ngModel>
+                    <label class="tabs__form-label"  for="instructionText">Instruction Text</label>
+                    <input type="text" class="form-control" name="instructionText" #comp2InstructionText [ngModel]="comp2InstructionText.value">
                   </div>
                   
                    <div class="form-group">
-                    <input type="checkbox" name="required" #required ngModel>
+                    <input type="checkbox" name="required" #comp2Required [ngModel]="false">
                     <label class="tabs__form-label" for="required">Required</label>
                   </div>
 
                    <div class="form-group">
                     <label class="tabs__form-label" for="dataType">Multiple selection</label>
-                    <select class="form-control" name="multipleSelection" ngModel #multipleSelection>
+                    <select class="form-control" name="multipleSelection" [ngModel]="comp2MultipleSelection.value" #comp2MultipleSelection>
                       <option selected>Single</option>
                       <option>Multiple</option>
                     </select>
                   </div>
 
                    <div class="form-group">
-                    <input class="tabs__form-label" type="radio" name="manualFilling" #manualFilling ngModel>
+                    <input type="radio" name="filling" #comp2Filling [ngModel]="filling" value="manualFill">
                     <label class="tabs__form-label" for="manualFilling">Manual Filling</label>
                   </div>
 
                    <div class="form-group">
-                    <input type="radio" name="preFill" #preFill ngModel>
+                    <input type="radio" name="filling" #comp2Filling [ngModel]="filling" value="preFill">
                     <label class="tabs__form-label" for="preFill">Pre fill from data source</label>
                   </div>
                   
                   <div class="form-group">
                     <label class="tabs__form-label" for="choicesPerLine">Choices (one per line)</label>
-                    <select class="form-control" name="choicesPerLine" ngModel #choicesPerLine>
+                    <select class="form-control" name="choicesPerLine" [ngModel]="comp2ChoicesPerLine.value" #comp2ChoicesPerLine>
                       <option selected>option 1</option>
                       <option>option 2</option>
                     </select>
                   </div>
 
                   <div class="form-group">
-                    <input type="checkbox" name="allowAddingOptions" #allowAddingOptions ngModel>
+                    <input type="checkbox" name="allowAddingOptions" #comp2allowAddingOptions [ngModel]="false">
                     <label class="tabs__form-label" for="allowAddingOptions">Allow adding user's options</label>
                   </div>
 
                   <button class="btn btn-primary" type="submit" (click)="ShowHidePanel(selectComponent[0].schema)">Done</button>
+                  <button type="button" class="btn btn-default" (click)="ShowHidePanel(selectComponent[0].schema)">Close</button>                  
+                  
                 </form>
               </div>
 

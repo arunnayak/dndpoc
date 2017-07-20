@@ -38,6 +38,11 @@
         height: calc( 90vh - 55px ); /* removed top bar height, subject to change*/ 
         transition: transform 0.2s ease;
         padding: 63px 25px 83px 25px;
+
+        label{
+            font-weight: 400;
+            font-size: 12px;
+        }
     }
 
     &__iphone{
