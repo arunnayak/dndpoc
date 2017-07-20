@@ -57,7 +57,9 @@
         }
 
         &:active{
-            padding: 2px;
+            .tabs__content-item-img{
+                opacity: 0.6;
+            }
         }
     }
     &__content-item-img{

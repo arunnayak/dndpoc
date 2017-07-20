@@ -2,9 +2,6 @@ import { Component} from '@angular/core';
 import { TreeComponent } from 'angular-tree-component';
 import { Node } from './node';
 
-import { JsonSchemaFormModule } from 'angular2-json-schema-form';
-
-
 declare var jQuery:any;
 
 @Component({

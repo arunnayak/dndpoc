@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { SortableContainer } from 'ng2-dnd';
+import { NgForm } from '@angular/forms';
 
 declare var jQuery: any;
 
@@ -16,7 +17,7 @@ declare var jQuery: any;
 })
 
 export class TabsComponent {
-
+    
     fieldTypes: Observable<Response>; 
 
     constructor(private http: Http) {
@@ -47,75 +48,18 @@ export class TabsComponent {
         jQuery('.'+formContainer).hide();
         jQuery('.device-area__dragged-items div').removeClass('device-area__highlight');
     }
-   
-    textInput: Array<any> = [{"id": 1, "type": "text", "name": "textName", "schema": "textInputSchema", "properties": [] }];
-    selectInput: Array<any> = [{"id": 2, "type": 'select', "name": "selectName", "schema": "selectInputSchema", "properties": {}}];
+
+    textComponent: Array<any> = [{"id": 1, "type": "text", "name": "textName", "schema": "textInputSchema", "properties": [] }];
+    selectComponent: Array<any> = [{"id": 2, "type": 'select', "name": "selectName", "schema": "selectInputSchema", "properties": [] }];
+
+    addTextProperties(form: NgForm) {
+        console.log(form.value);
+        this.textComponent[0].properties.push(form.value);
+    }
+
+    addSelectProperties(form: NgForm) {
+        console.log(form.value);
+        this.selectComponent[0].properties.push(form.value);
+    }
     
-   // textInput: Object = {id: 1, "type": 'text', name: "textName", schema: "textInputSchema", properties: {}};
-    //selectInput: Object = {id: 2, type: 'select', name: "selectName", schema: "selectInputSchema", properties: {}};
-    testInput: Object = {id: 4, type: 'text', name: "textname", schema: "testSchema", properties: {}};
-    
-    properties: Array<any> = [];
-    createJsonObj: Array<any> = [];
-    showJson(val, val2){
-
-    this.properties.push(val)
-    this.selectInput.push(val2);
-
-    this.createJsonObj.push(this.textInput, this.selectInput);
-    let formatToJson = JSON.stringify(this.createJsonObj);
-    console.log(formatToJson);
-    }
-
-    textInputSchema = {
-        "properties": {
-            "label": {
-                "type": "string",
-                "description": "label"
-            },
-            "styles": {
-                "type": "string",
-                "description": "styles"
-            }
-        }
-    }
-
-    selectInputSchema = {
-        "properties": {
-            "label": {
-                "type": "string",
-                "description": "label"
-            },
-            "styles": {
-                "type": "string",
-                "description": "styles"
-            },
-            "select": {
-                "type": "string",
-                "description": "select",
-                "widget": "select",
-                "oneOf": [{
-                    "description": "Option 1", "enum": ["option1"]
-                    }, {
-                    "description": "Option 2", "enum": ["option2"]
-                    }, {
-                    "description": "Option 3", "enum": ["option3"]
-                    }],
-                "default": "option1"
-            }
-        }
-    }
-
-    testSchema = {
-        "properties": {
-            "label": {
-                "type": "string",
-                "description": "label"
-            },
-            "styles": {
-                "type": "string",
-                "description": "styles"
-            }
-        }
-    }
 }

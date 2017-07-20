@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes, Router } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
 
 //import { AlertModule } from 'ngx-bootstrap'; //uncomment this line when we need an alert module
 //import { DragulaModule } from 'ng2-dragula'; //============ third party module ==============//
@@ -51,7 +52,9 @@ const appRoutes: Routes  = [
     AngularFireDatabaseModule,
     AngularSplitModule,
     TreeModule,
-    SchemaFormModule
+    SchemaFormModule,
+    FormsModule,
+    ReactiveFormsModule
     //AlertModule.forRoot() //uncomment this line when we need an alert module
   ],
   providers: [{provide: WidgetRegistry, useClass: DefaultWidgetRegistry}],
