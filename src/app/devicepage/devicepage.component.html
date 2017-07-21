@@ -21,8 +21,8 @@
             </div>
             <span class="device-area__rotate-icon" (click)="rotateScreen(device.value)" [hidden]="!sh.showhide.show"></span>
             <div class="col-md-4 pull-right text-right" [hidden]="sh.showhide.show">
-              <button class="btn btn-primary">Save</button>
-              <button class="btn btn-default" (click)="ShowJson()">Preview</button>
+              <button class="btn btn-primary" (click)="downloadJSON()">Save</button>
+              <button class="btn btn-default">Preview</button>
             </div>
           </div>
         </div>

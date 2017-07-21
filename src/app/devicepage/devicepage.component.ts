@@ -37,8 +37,13 @@ export class DevicepageComponent {
         console.log('Downloading...');
         let formatToJson = JSON.stringify(this.receivedData);
         saveAs(new Blob([formatToJson], { type: "application/json" }), 'data.json');
-        console.log(formatToJson);
+        //console.log(formatToJson);
     }
+
+    ShowJson(){
+        console.log(JSON.stringify(this.receivedData));
+    }
+
 
     showPanel(data) {
         console.log(data.type);
@@ -76,10 +81,6 @@ export class DevicepageComponent {
         jQuery("."+formContainer).toggle();
         jQuery(elm).toggleClass('device-area__highlight');
         
-    }
-
-    ShowJson(){
-        console.log(JSON.stringify(this.receivedData));
     }
 
     ShowHidePanel(formContainer){
