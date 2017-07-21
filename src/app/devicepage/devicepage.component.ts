@@ -95,18 +95,25 @@ export class DevicepageComponent {
                                 "id": 2, "type": 'select', "name": "selectName", "schema": "selectInputSchema", 
                                 "properties": [] }];
 
+    dateComponent: Array<any> = [{
+                                "id": 3, "type": 'date', "name": "dateName", "schema": "dateInputSchema", 
+                                "properties": [] }];
+
     addTextProperties(form: NgForm) {
-       // console.log('arun');
-        //console.log(form.value);
         this.textComponent[0].properties.push(form.value);
         console.log(this.textComponent[0])
 
     }
 
     addSelectProperties(form: NgForm) {
-        //console.log(form.value);
         this.selectComponent[0].properties.push(form.value);
         console.log(this.selectComponent[0])
+        
+    }
+
+    addDateProperties(form: NgForm) {
+        this.dateComponent[0].properties.push(form.value);
+        console.log(this.dateComponent[0])
         
     }
 }

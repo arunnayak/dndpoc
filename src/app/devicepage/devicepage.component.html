@@ -38,13 +38,19 @@
                 
                 <div *ngIf="data.dragData[0].type=='text'">
                   <label>{{comp1Title.value}}</label>
-                  <input type="{{comp1DataType.value}}" class="form-control" placeholder="{{comp1Placeholder.value}}"  />
+                  <input [ngStyle]="{'background-color': comp1BgColor.value, 'color': comp1TextColor.value}" type="text" class="form-control" placeholder="{{comp1Placeholder.value}}"  />
                 </div>
 
                 <div *ngIf="data.dragData[0].type=='select'">
                   <label>{{comp2Title.value}}</label>
-                  <select class="form-control"></select>
+                  <select [ngStyle]="{'background-color': comp2BgColor.value, 'color': comp2TextColor.value}" class="form-control"></select>
                 </div>
+
+                 <div *ngIf="data.dragData[0].type=='date'">
+                   <label>{{comp3Title.value}}</label>
+                  <input [ngStyle]="{'background-color': comp3BgColor.value, 'color': comp3TextColor.value}" type="text" class="form-control" onBlur="(this.type='text')" onfocus="(this.type='date')" placeholder="{{comp3Placeholder.value}}"  /> 
+                </div>
+
               </div>
             </div>
           </div>
@@ -80,12 +86,17 @@
             <li class="tabs__content-item">
               <img src="../../assets/img/field-types/01-Text-Input.png" dnd-draggable [dragData]="textComponent" class="tabs__content-item-img"
                 alt="Text Input" />
-              <span class="tabs__content-item-name">Text Input</span>
+                <span class="tabs__content-item-name">Text Input</span>
 
 
               <div class="tabs__properties {{textComponent[0].schema}}">
 
                   <form #component1Form="ngForm" (ngSubmit)="addTextProperties(component1Form)">
+                  
+                  <div class="tabs__buttons">
+                  <button class="btn btn-primary btn-sm" type="submit" (click)="ShowHidePanel(textComponent[0].schema)">Done</button>
+                  <button type="button" class="btn btn-default btn-sm" (click)="ShowHidePanel(textComponent[0].schema)">Close</button>                  
+                </div>
 
                   <div class="form-group">
                     <label class="tabs__form-label" for="title">Title</label>
@@ -97,13 +108,13 @@
                     <textarea class="form-control" name="fieldName" #comp1FieldName [ngModel]="comp1FieldName.value"></textarea>
                   </div>
 
-                   <div class="form-group">
+                   <!-- <div class="form-group">
                     <label class="tabs__form-label" for="dataType">Data Type</label>
                     <select class="form-control" name="dataType" [ngModel]="comp1DataType.value" #comp1DataType>
                       <option selected>text</option>
                       <option>Number</option>
                     </select>
-                  </div>
+                  </div> -->
 
                   <div class="form-group">
                     <label class="tabs__form-label" for="placeholder">Place holder</label>
@@ -111,11 +122,20 @@
                   </div>
 
                   <div class="form-group">
-                    <label class="tabs__form-label" for="instructionText">Tnstruction Text</label>
+                    <label class="tabs__form-label" for="instructionText">Instruction Text</label>
                     <input type="text" class="form-control" name="instructionText" #comp1InstructionText [ngModel]="comp1InstructionText.value">
                   </div>
 
-                  
+                   <div class="form-group">
+                    <label class="tabs__form-label" for="bgColor">Background color</label>
+                    <input type="color" value="#ffffff" class="form-control input-sm" style="width: 50px; padding: 0; border: 0; border-radius: 0; box-shadow: none;" name="bgColor" #comp1BgColor [ngModel]="comp1BgColor.value">
+                  </div>
+
+                  <div class="form-group">
+                    <label class="tabs__form-label" for="textColor">Text color</label>
+                    <input type="color" value="#000000" class="form-control input-sm" style="width: 50px; padding: 0; border: 0; border-radius: 0; box-shadow: none;" name="textColor" #comp1TextColor [ngModel]="comp1TextColor.value">
+                  </div>
+
                   <div class="form-group">
                     <input type="checkbox" name="required" #comp1Required [ngModel]="false">
                     <label class="tabs__form-label" for="required">Required</label>
@@ -125,16 +145,14 @@
                     <input type="checkbox" name="speechToText" checked="" #comp1SpeechToText [ngModel]="false">
                     <label class="tabs__form-label" for="required">Speech to text</label>
                   </div>
-
-                  <button class="btn btn-primary" type="submit" (click)="ShowHidePanel(textComponent[0].schema)">Done</button>
-                  <button type="button" class="btn btn-default" (click)="ShowHidePanel(textComponent[0].schema)">Close</button>                  
+                  
                 </form>
               </div>
             </li>
 
             <li class="tabs__content-item">
               <img src="../../assets/img/field-types/05-Drop-Down.png" dnd-draggable [dragData]="selectComponent" class="tabs__content-item-img"
-                alt="Text Input" />
+                alt="Selectbox" />
               <span class="tabs__content-item-name">Select</span>
 
               <div class="tabs__properties {{selectComponent[0].schema}}">
@@ -142,6 +160,11 @@
                 <!-- <span class="tabs__close-icon glyphicon glyphicon-remove-circle" (click)="ShowHidePanel(selectComponent[0].schema, 'buttonSelect')"></span> -->
 
                 <form #component2Form="ngForm" (ngSubmit)="addSelectProperties(component2Form)">
+                  
+                  <div class="tabs__buttons">
+                    <button class="btn btn-primary btn-sm" type="submit" (click)="ShowHidePanel(selectComponent[0].schema)">Done</button>
+                    <button type="button" class="btn btn-default btn-sm" (click)="ShowHidePanel(selectComponent[0].schema)">Close</button>
+                  </div>
 
                   <div class="form-group">
                     <label class="tabs__form-label" for="title">Title</label>
@@ -195,12 +218,19 @@
                   </div>
 
                   <div class="form-group">
+                    <label class="tabs__form-label" for="bgColor">Background color</label>
+                    <input type="color" value="#ffffff" class="form-control input-sm" style="width: 50px; padding: 0; border: 0; border-radius: 0; box-shadow: none;" name="bgColor" #comp2BgColor [ngModel]="comp2BgColor.value">
+                  </div>
+
+                  <div class="form-group">
+                    <label class="tabs__form-label" for="textColor">Text color</label>
+                    <input type="color" value="#000000" class="form-control input-sm" style="width: 50px; padding: 0; border: 0; border-radius: 0; box-shadow: none;" name="textColor" #comp2TextColor [ngModel]="comp2TextColor.value">
+                  </div>
+
+                  <div class="form-group">
                     <input type="checkbox" name="allowAddingOptions" #comp2allowAddingOptions [ngModel]="false">
                     <label class="tabs__form-label" for="allowAddingOptions">Allow adding user's options</label>
                   </div>
-
-                  <button class="btn btn-primary" type="submit" (click)="ShowHidePanel(selectComponent[0].schema)">Done</button>
-                  <button type="button" class="btn btn-default" (click)="ShowHidePanel(selectComponent[0].schema)">Close</button>                  
                   
                 </form>
               </div>
@@ -209,15 +239,82 @@
 
             <li class="tabs__content-item">
               <img src="../../assets/img/field-types/02-Numeric-Input.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
-                alt="Text Input" />
+                alt="Numeric Input" />
               <span class="tabs__content-item-name">Numeric Inpput</span>
-
+              <!--- form here -->
             </li>
 
             <li class="tabs__content-item">
-              <img src="../../assets/img/field-types/03-Date.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input"
+              <img src="../../assets/img/field-types/03-Date.png" dnd-draggable [dragData]="dateComponent" class="tabs__content-item-img" alt="Date Input"
               />
               <span class="tabs__content-item-name">Date</span>
+
+              <div class="tabs__properties {{dateComponent[0].schema}}">
+
+                 <form #component3Form="ngForm" (ngSubmit)="addDateProperties(component3Form)">
+
+                    <div class="tabs__buttons">
+                    <button class="btn btn-primary" type="submit" (click)="ShowHidePanel(dateComponent[0].schema)">Done</button>
+                    <button type="button" class="btn btn-default" (click)="ShowHidePanel(dateComponent[0].schema)">Close</button>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="tabs__form-label" for="title">Title</label>
+                     <input type="text" value="Date / Time" class="form-control" name="title" #comp3Title [ngModel]="comp3Title.value" /> 
+                  </div>
+
+                  <div class="form-group">
+                    <label class="tabs__form-label" for="fieldName">Field Name</label>
+                    <input type="text" value="Date / Time" class="form-control" name="fieldName" #comp3FieldName [ngModel]="comp3FieldName.value" /> 
+                  </div>
+
+                  <div class="form-group">
+                    
+                    <label class="tabs__form-label" for="placeholder">Place holder</label>
+                    <input type="text" value="Date / Time" class="form-control" name="placeholder" #comp3Placeholder [ngModel]="comp3Placeholder.value">
+                  </div>
+
+                  <div class="form-group">
+                    <input type="checkbox" name="required" #comp3Required [ngModel]="false">
+                    <label class="tabs__form-label" for="required">Required</label>
+                  </div>
+
+                   <div class="form-group">
+                    <label class="tabs__form-label" for="format">Format</label>
+                    <select class="form-control" name="format" [ngModel]="comp3Format.value" #comp3Format>
+                      <option selected>Date</option>
+                      <option>Time</option>
+                      <option>Datetime</option>
+                    </select>
+                  </div>
+                  
+                   <div class="form-group">
+                    <label class="tabs__form-label" for="bgColor">Background color</label>
+                    <input type="color" value="#ffffff" class="form-control input-sm" style="width: 50px; padding: 0; border: 0; border-radius: 0; box-shadow: none;" name="bgColor" #comp3BgColor [ngModel]="comp3BgColor.value">
+                  </div>
+
+                  <div class="form-group">
+                    <label class="tabs__form-label" for="textColor">Text color</label>
+                    <input type="color" value="#000000" class="form-control input-sm" style="width: 50px; padding: 0; border: 0; border-radius: 0; box-shadow: none;" name="textColor" #comp3TextColor [ngModel]="comp3TextColor.value">
+                  </div>
+
+                   <div class="form-group">
+                    <input type="checkbox" name="currentDatetimeDefault" #comp3CurrentDatetimeDefault [ngModel]="false">
+                    <label class="tabs__form-label" for="currentDatetimeDefault">Use Current Datetime as Default</label>
+                  </div>
+
+                   <div class="form-group">
+                    <input type="checkbox" name="readOnly" #comp3ReadOnly [ngModel]="false">
+                    <label class="tabs__form-label" for="readOnly">Read Only</label>
+                  </div>
+
+                   <div class="form-group">
+                    <input type="checkbox" name="hidden" #comp3Hidden [ngModel]="false">
+                    <label class="tabs__form-label" for="hidden">Required</label>
+                  </div>
+                             
+                </form>
+              </div>
 
             </li>
 
@@ -225,13 +322,15 @@
               <img src="../../assets/img/field-types/04-Switch.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Switch</span>
-
+              <!--- form here -->
+              
             </li>
 
             <li class="tabs__content-item">
               <img src="../../assets/img/field-types/06-Input-Drop-Down.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Input drop down</span>
+              <!--- form here -->
 
             </li>
 
@@ -239,6 +338,7 @@
               <img src="../../assets/img/field-types/07-Multi-Value-Drop-Down.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Multi Value Drop Down</span>
+              <!--- form here -->
 
             </li>
 
@@ -246,6 +346,7 @@
               <img src="../../assets/img/field-types/09-Attachments.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Attachments</span>
+              <!--- form here -->
 
             </li>
 
@@ -253,6 +354,7 @@
               <img src="../../assets/img/field-types/08-Slider.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Slider</span>
+              <!--- form here -->
 
             </li>
 
@@ -260,6 +362,7 @@
               <img src="../../assets/img/field-types/05-Drop-Down.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Select</span>
+              <!--- form here -->
 
             </li>
 
@@ -267,6 +370,7 @@
               <img src="../../assets/img/field-types/10-Long-Input.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Long Input</span>
+              <!--- form here -->
 
             </li>
 
@@ -274,6 +378,7 @@
               <img src="../../assets/img/field-types/11-Input-or-Scan.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Input or Scan</span>
+              <!--- form here -->
 
             </li>
 
@@ -281,6 +386,7 @@
               <img src="../../assets/img/field-types/12-Scan.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img" alt="Text Input"
               />
               <span class="tabs__content-item-name">Scan</span>
+              <!--- form here -->
 
             </li>
 
@@ -288,6 +394,7 @@
               <img src="../../assets/img/field-types/13-Check-Box.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Check Box</span>
+              <!--- form here -->
 
             </li>
 
@@ -295,6 +402,7 @@
               <img src="../../assets/img/field-types/14-Signature.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Signature</span>
+              <!--- form here -->
 
             </li>
 
@@ -302,6 +410,7 @@
               <img src="../../assets/img/field-types/15-Display-interactive.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Display interactive</span>
+              <!--- form here -->
 
             </li>
 
@@ -316,6 +425,7 @@
               <img src="../../assets/img/field-types/05-Drop-Down.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Select</span>
+              <!--- form here -->
 
             </li>
 
@@ -323,6 +433,7 @@
               <img src="../../assets/img/field-types/17-Drop-Down-Range.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Drop Down Range</span>
+              <!--- form here -->
 
             </li>
 
@@ -330,6 +441,7 @@
               <img src="../../assets/img/field-types/18-Date-Range.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Date Range</span>
+              <!--- form here -->
 
             </li>
 
@@ -337,6 +449,7 @@
               <img src="../../assets/img/field-types/19-Text-Range.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Text Range</span>
+              <!--- form here -->
 
             </li>
 
@@ -344,6 +457,7 @@
               <img src="../../assets/img/field-types/20-Numeric-Range.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Numeric Range</span>
+              <!--- form here -->
 
             </li>
 
@@ -351,6 +465,7 @@
               <img src="../../assets/img/field-types/21-Input-Drop-Down-Range.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Input Drop Down Range</span>
+              <!--- form here -->
 
             </li>
 
@@ -358,6 +473,7 @@
               <img src="../../assets/img/field-types/22-Scan-Input-Drop-Down.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Scan Input Drop Down</span>
+              <!--- form here -->
 
             </li>
 
@@ -365,6 +481,7 @@
               <img src="../../assets/img/field-types/23-Long-Text-Display.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Long Text Display</span>
+              <!--- form here -->
 
             </li>
 
@@ -372,6 +489,7 @@
               <img src="../../assets/img/field-types/24-Time-Select.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Time Select</span>
+              <!--- form here -->
 
             </li>
 
@@ -379,6 +497,7 @@
               <img src="../../assets/img/field-types/25-Time-Display.png" dnd-draggable [dragData]="testInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Time Display</span>
+              <!--- form here -->
 
             </li>
 
@@ -386,6 +505,7 @@
               <img src="../../assets/img/field-types/26-Numeric-Input-Drop-Down.png" dnd-draggable [dragData]="selectInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Numeric Input Drop Down</span>
+              <!--- form here -->
 
             </li>
 
@@ -393,6 +513,7 @@
               <img src="../../assets/img/field-types/27-Geo-Location-Address-Display.png" dnd-draggable [dragData]="selectInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Geo Location Address Display</span>
+              <!--- form here -->
 
             </li>
 
@@ -400,6 +521,7 @@
               <img src="../../assets/img/field-types/28-Geo-Location-Coordinates-Display.png" dnd-draggable [dragData]="selectInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Geo Location Coordinates Display</span>
+              <!--- form here -->
 
             </li>
 
@@ -407,6 +529,7 @@
               <img src="../../assets/img/field-types/29-Geo-Location-Address-Input.png" dnd-draggable [dragData]="selectInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Geo Location Address Input</span>
+              <!--- form here -->
 
             </li>
 
@@ -414,6 +537,7 @@
               <img src="../../assets/img/field-types/30-Geo-Location-Coordinate-Input.png" dnd-draggable [dragData]="selectInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Geo Location Coordinate Input</span>
+              <!--- form here -->
 
             </li>
 
@@ -421,6 +545,7 @@
               <img src="../../assets/img/field-types/31-Input-Drop-Down-Multi-Value.png" dnd-draggable [dragData]="selectInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Input Drop Down Multi Value</span>
+              <!--- form here -->
 
             </li>
 
@@ -428,6 +553,7 @@
               <img src="../../assets/img/field-types/32-Numeric-Input-Drop-Down-Multi-Value.png" dnd-draggable [dragData]="selectInput"
                 class="tabs__content-item-img" alt="Text Input" />
               <span class="tabs__content-item-name">Numeric Input Drop Down Multi Value</span>
+              <!--- form here -->
 
             </li>
 
@@ -435,6 +561,7 @@
               <img src="../../assets/img/field-types/33-Numeric-Field-Multi-Value.png" dnd-draggable [dragData]="selectInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Numeric Field Multi Value</span>
+              <!--- form here -->
 
             </li>
 
@@ -442,6 +569,7 @@
               <img src="../../assets/img/field-types/34-Image-Capture.png" dnd-draggable [dragData]="selectInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Image Capture</span>
+              <!--- form here -->
 
             </li>
 
@@ -449,6 +577,7 @@
               <img src="../../assets/img/field-types/35-Video-Recording.png" dnd-draggable [dragData]="selectInput" class="tabs__content-item-img"
                 alt="Text Input" />
               <span class="tabs__content-item-name">Video Recording</span>
+              <!--- form here -->
 
             </li>
           </ul>
