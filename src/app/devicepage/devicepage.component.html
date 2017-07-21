@@ -21,7 +21,7 @@
             </div>
             <span class="device-area__rotate-icon" (click)="rotateScreen(device.value)" [hidden]="!sh.showhide.show"></span>
             <div class="col-md-4 pull-right text-right" [hidden]="sh.showhide.show">
-              <button class="btn btn-primary" (click)="downloadJSON()">Save</button>
+              <button class="btn btn-success" (click)="downloadJSON()">Save</button>
               <button class="btn btn-default">Preview</button>
             </div>
           </div>
@@ -35,9 +35,10 @@
             <div [hidden]="!receivedData.length > 0" *ngFor="let data of receivedData; let x = index">
               <div class="form-group form-comp" #element (click)="ShowProperties(data.dragData[0].schema, element)" dnd-sortable [sortableIndex]="x"
                 [dragEnabled]="!dragOperation" [dragData]="data" [dragData]="source">
-                
+                <!-- {{receivedData | json}} -->
                 <div *ngIf="data.dragData[0].type=='text'">
                   <label>{{comp1Title.value}}</label>
+                  <!-- <span class="glyphicon glyphicon-remove pull-right" (click)="removeDraggedData()"></span> -->
                   <input [ngStyle]="{'background-color': comp1BgColor.value, 'color': comp1TextColor.value}" type="text" class="form-control" placeholder="{{comp1Placeholder.value}}"  />
                 </div>
 
