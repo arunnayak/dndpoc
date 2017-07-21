@@ -78,7 +78,7 @@ export class DevicepageComponent {
         jQuery(".tabs__properties").hide();
         jQuery('.device-area__dragged-items div').removeClass('device-area__highlight');
 
-        jQuery("."+formContainer).toggle();
+        jQuery("."+formContainer).show();
         jQuery(elm).toggleClass('device-area__highlight');
         
     }
