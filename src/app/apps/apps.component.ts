@@ -16,12 +16,22 @@ export class AppsComponent {
   newTodo: Todo = new Todo();
   items: FirebaseListObservable<any[]>;
 
+  public name: string;
+  public description: string;
+  public date: string;
+  public icon: boolean;
+
   constructor(afDb: AngularFireDatabase) {
     this.items = afDb.list('/items');
   } 
   
-  addTodo(name: string, description: string, date: string, icon: boolean){
+  addTodo(name, description, date, icon){
     
+    this.name = name;
+    this.description = description;
+    this.date = date;
+    this.icon = icon;
+    console.log(this.newTodo);
     //close modal window
     jQuery(".modal button.close").click();
 

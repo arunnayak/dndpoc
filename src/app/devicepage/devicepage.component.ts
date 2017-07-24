@@ -1,9 +1,8 @@
 import {Component} from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { saveAs } from 'file-saver';
 import { RouterModule, Routes } from '@angular/router';
 
-import { TabsComponent } from '../tabs/tabs.component';
+// import { TabsComponent } from '../tabs/tabs.component';
 import { HeaderComponent } from '../header/header.component';
 import { LeftpaneComponent } from '../leftpane/leftpane.component';
 import { ShowHideSharedService } from '../../app/show-hide-shared.service';
@@ -44,22 +43,10 @@ export class DevicepageComponent {
         console.log(JSON.stringify(this.receivedData));
     }
 
-
-    showPanel(data) {
-        console.log(data.type);
-        if (data.type == 'button') {
-            jQuery('.button-panel').slideDown();
-            jQuery('.text-panel').slideUp();
-        }
-        if (data.type == 'text') {
-            jQuery('.text-panel').slideDown();
-            jQuery('.button-panel').slideUp();
-        }
-    }
-
     //New functions
     public isFullScreenActive: boolean = false;
     public rotate: boolean = false;
+    public filling: boolean = false;
     
     fullScreen(){
         this.isFullScreenActive = !this.isFullScreenActive;
