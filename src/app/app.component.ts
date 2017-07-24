@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component'
-
 @Component({
   selector: 'app-root',
   template: `
-    <app-header></app-header>
-    <router-outlet></router-outlet>
-    <app-footer></app-footer>
+    <div class="wrapper">
+    <app-sidebar></app-sidebar>
+        <div id="page-content-wrapper">
+          <app-topmenu></app-topmenu>
+          <router-outlet></router-outlet>
+        </div>
+    </div>
   `,
   styleUrls: ['./app.component.scss']
 })

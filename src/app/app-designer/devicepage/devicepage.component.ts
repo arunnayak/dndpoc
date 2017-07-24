@@ -3,11 +3,14 @@ import { saveAs } from 'file-saver';
 import { RouterModule, Routes } from '@angular/router';
 
 // import { TabsComponent } from '../tabs/tabs.component';
-import { HeaderComponent } from '../header/header.component';
 import { LeftpaneComponent } from '../leftpane/leftpane.component';
-import { ShowHideSharedService } from '../../app/show-hide-shared.service';
+import { ShowHideSharedService } from '../show-hide-shared.service';
 import { NgForm } from '@angular/forms';
 import { SortableContainer } from 'ng2-dnd';
+
+import { HeaderComponent } from '../header/header.component'
+import { FooterComponent } from '../footer/footer.component'
+
 
 declare var jQuery: any;
 

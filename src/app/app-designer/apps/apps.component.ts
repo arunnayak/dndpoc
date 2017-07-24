@@ -3,6 +3,9 @@ import { Todo } from '../todo/todo';
 import { TodoDataService } from '../todo/todo-data.service';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
+import { HeaderComponent } from '../header/header.component'
+import { FooterComponent } from '../footer/footer.component'
+
 declare var jQuery:any;
 @Component({
   selector: 'app-apps',

@@ -1,11 +1,41 @@
 body{
     background: #fff;
-    padding-top: 50px;
+    // padding-top: 50px;
 }
 .nopadding{
     padding: 0 !important;
 }
 
+.wrapper {
+    padding-left: 45px;
+    transition: all .4s ease 0s;
+    height: 100%;
+}
+
+.wrapper.active {
+    padding-left: 220px;
+}
+.wrapper.active .sidebar-wrapper {
+    left: 220px;
+}
+
+@media (max-width:767px) {
+    .wrapper {
+    padding-left: 70px;
+    transition: all .4s ease 0s;
+}
+.sidebar-wrapper {
+    left: 70px;
+}
+.wrapper.active {
+    padding-left: 220px;
+}
+.wrapper.active .sidebar-wrapper {
+    left: 220px;
+    width: 220px;
+    transition: all .4s ease 0s;
+}
+}
 
 .apps{
     background: #fff;

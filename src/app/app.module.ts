@@ -15,19 +15,23 @@ import { TreeModule } from 'angular-tree-component';
 import { SchemaFormModule, WidgetRegistry, DefaultWidgetRegistry } from "angular2-schema-form";
 
 import { AppComponent } from './app.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
-import { AppsComponent } from './apps/apps.component';
-import { DevicepageComponent } from './devicepage/devicepage.component';
+import { FooterComponent } from './app-designer/footer/footer.component';
+import { HeaderComponent } from './app-designer/header/header.component';
+import { AppsComponent } from './app-designer/apps/apps.component';
+import { DevicepageComponent } from './app-designer/devicepage/devicepage.component';
 import { firebaseConfig } from './firebaseConfig';
-import { LeftpaneComponent } from './leftpane/leftpane.component';
+import { LeftpaneComponent } from './app-designer/leftpane/leftpane.component';
 // import { TabsComponent } from './tabs/tabs.component';
-import { SanitizeHtmlPipe } from './sanitize-html.pipe';
+import { SanitizeHtmlPipe } from './app-designer/sanitize-html.pipe';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { TopmenuComponent } from './topmenu/topmenu.component';
+import { HomeComponent } from './home/home.component';
 
 
 const appRoutes: Routes  = [
-    { path: '', component: AppsComponent, data:{ name: 'Home'}},
-    { path: 'app/:id', component: DevicepageComponent, data:{ name: 'Apps component'}},
+    { path: '', component: HomeComponent, data:{ name: 'Home'}},
+    { path: 'app-designer', component: AppsComponent, data:{ name: 'Apps'}},
+    { path: 'app-designer/:id', component: DevicepageComponent, data:{ name: 'Apps Designer'}},
     
 ]
 
@@ -40,7 +44,10 @@ const appRoutes: Routes  = [
     DevicepageComponent,
     LeftpaneComponent,
     // TabsComponent,
-    SanitizeHtmlPipe
+    SanitizeHtmlPipe,
+    SidebarComponent,
+    TopmenuComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

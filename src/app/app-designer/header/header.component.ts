@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { DevicepageComponent } from '../devicepage/devicepage.component';
 
 declare var jQuery: any;
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-designer-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
