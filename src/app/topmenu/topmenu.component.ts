@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterLinkActive } from '@angular/router';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -9,8 +11,13 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class TopmenuComponent implements OnInit {
+  
+  public location = '' ;
 
-  constructor() { }
+  constructor(location: Location) { 
+      this.location = location.path();
+
+  }
 
   ngOnInit() {
   }

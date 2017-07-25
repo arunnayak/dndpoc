@@ -19,10 +19,11 @@ import { FooterComponent } from './app-designer/footer/footer.component';
 import { HeaderComponent } from './app-designer/header/header.component';
 import { AppsComponent } from './app-designer/apps/apps.component';
 import { DevicepageComponent } from './app-designer/devicepage/devicepage.component';
-import { firebaseConfig } from './firebaseConfig';
+import { WelcomeComponent } from './app-designer/welcome/welcome.component';
 import { LeftpaneComponent } from './app-designer/leftpane/leftpane.component';
-// import { TabsComponent } from './tabs/tabs.component';
 import { SanitizeHtmlPipe } from './app-designer/sanitize-html.pipe';
+import { firebaseConfig } from './firebaseConfig';
+
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TopmenuComponent } from './topmenu/topmenu.component';
 import { HomeComponent } from './home/home.component';
@@ -30,8 +31,9 @@ import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes  = [
     { path: '', component: HomeComponent, data:{ name: 'Home'}},
-    { path: 'app-designer', component: AppsComponent, data:{ name: 'Apps'}},
-    { path: 'app-designer/:id', component: DevicepageComponent, data:{ name: 'Apps Designer'}},
+    { path: 'app-designer', component: WelcomeComponent, data:{ name: 'App Designer Landing'}},
+    { path: 'app-designer/applauncher', component: AppsComponent, data:{ name: 'List of apps'}},
+    { path: 'app-designer/applauncher/:id', component: DevicepageComponent, data:{ name: 'Apps Designer'}},
     
 ]
 
@@ -47,7 +49,8 @@ const appRoutes: Routes  = [
     SanitizeHtmlPipe,
     SidebarComponent,
     TopmenuComponent,
-    HomeComponent
+    HomeComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

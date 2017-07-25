@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import { saveAs } from 'file-saver';
-import { RouterModule, Routes } from '@angular/router';
 
 // import { TabsComponent } from '../tabs/tabs.component';
 import { LeftpaneComponent } from '../leftpane/leftpane.component';
@@ -10,7 +9,6 @@ import { SortableContainer } from 'ng2-dnd';
 
 import { HeaderComponent } from '../header/header.component'
 import { FooterComponent } from '../footer/footer.component'
-
 
 declare var jQuery: any;
 
@@ -22,13 +20,11 @@ declare var jQuery: any;
 })
 
 export class DevicepageComponent {
-
+    
     constructor(public sh: ShowHideSharedService) {
-
     }
 
     receivedData: Array<any> = [];
-
     transferDataSuccess($event: any) {
         this.receivedData.push($event);
         //console.log(this.receivedData);

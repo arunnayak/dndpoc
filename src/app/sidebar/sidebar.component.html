@@ -1,4 +1,4 @@
-<div class="sidebar">
+<div class="sidebar" *ngIf="location.indexOf('applauncher') === -1">
   <ul id="sidebar_menu" class="sidebar__nav">
     <li class="sidebar__name" (click)="toggleSidebar()" id="menu-toggle">
         Name
@@ -7,7 +7,7 @@
   </ul>
   <ul class="sidebar__nav" id="sidebar">
     <li class="sidebar__menu-item"><a class="sidebar__menu-link" routerLinkActive="active" routerLink="/">Home <span class="glyphicon glyphicon-home"></span></a></li>
-    <li class="sidebar__menu-item"><a class="sidebar__menu-link" routerLinkActive="active" routerLink="/app-designer">App Designer <span class="glyphicon glyphicon-book"></span></a></li>
+    <li class="sidebar__menu-item"><a class="sidebar__menu-link" routerLinkActive="active" routerLink="app-designer" target="_blank">App Designer <span class="glyphicon glyphicon-book"></span></a></li>
     <li class="sidebar__menu-item"><a class="sidebar__menu-link" routerLinkActive="active" routerLink="/a">Race SDK Access <span class="glyphicon glyphicon-cloud-download"></span></a></li>
     <li class="sidebar__menu-item"><a class="sidebar__menu-link" routerLinkActive="active" routerLink="/b">Race API Explorer <span class="glyphicon glyphicon-hdd"></span></a></li>
     <li class="sidebar__menu-item"><a class="sidebar__menu-link" routerLinkActive="active" routerLink="/b">App Generation Portal <span class="glyphicon glyphicon-th"></span></a></li>

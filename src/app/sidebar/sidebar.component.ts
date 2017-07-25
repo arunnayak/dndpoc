@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLinkActive } from '@angular/router';
+import { Location } from '@angular/common';
 
 declare var jQuery: any;
 
@@ -10,7 +11,10 @@ declare var jQuery: any;
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  public location = '' ;
+  constructor(location: Location) { 
+      this.location = location.path();
+  }
 
   ngOnInit() {
   }
@@ -18,6 +22,7 @@ export class SidebarComponent implements OnInit {
   toggleSidebar(){
       event.preventDefault();
       jQuery(".wrapper").toggleClass("active");
+      jQuery('#main_icon').toggleClass('open');
   }
 
 }
